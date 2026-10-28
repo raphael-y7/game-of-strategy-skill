@@ -1,0 +1,44 @@
+{
+  "tool": "cangjie-tools v2.5.0",
+  "published_hashes": {
+    "references\\capabilities\\batna-negotiation.md": "2b3bcd2f4e996bbfb6741c6f0750c22da0bcd1d4d2db6e920f8a134430b98de3",
+    "references\\capabilities\\brinkmanship-dual-threshold.md": "6ffbc564ed74fcfad3a4fa4fb5429df98291bc5401e9c511e414b9963c94fe86",
+    "references\\capabilities\\collective-action-stampede.md": "5986318bc45c517209ad2fab7ba6f2c496396e49388e16d1c262ae6f8af6b5e7",
+    "references\\capabilities\\cooperation-threshold-repeat-game.md": "141002bfe6a1a787f87ee7909235281f91cb0c9d459603a71e475c6d80f3ab63",
+    "references\\capabilities\\credibility-signaling-filter.md": "de69f0ae24e910d35ba338c67f2ea582fea63d9b24fc78cf910b133fb8973683",
+    "references\\capabilities\\event-game-tree-rollback.md": "ee13e9216ce840085d22c657ae6b6f90395253903a4c53ef0c1d4b161b3adec1",
+    "references\\capabilities\\focal-point-selection.md": "1dde6663873ed8174fbe82de3b50e731c08930c0fbe0c6deb08f30e822b9bd1f",
+    "references\\capabilities\\mechanism-design-incentives.md": "80266bfb81fb0b98e9ceacee16c99a85769a6efdf81bd9d3575cca85b5885148",
+    "references\\capabilities\\mixed-strategy-randomization.md": "df42247b012ab397632ecc8fdc781497b68b95fa37c26ade4515a7cf44c4f2f2",
+    "references\\capabilities\\payoff-table-nash-equilibrium.md": "27e9965d377448b2ce9bc08971639949595ebc4ca062ca40d1d44bb4bfea4ee0",
+    "references\\capabilities\\source-router.md": "ac4d6b26fe9061aac82560d8b0ec97592c2ef80ce8e2ec4e3058f8b2f05f360a",
+    "references\\capabilities\\strategic-crowding-ess.md": "dc85e4525c1a73c81a172f3216e7e3c165fd3378162bc133ea9003d4ef1c0182",
+    "references\\capabilities\\strategic-moves-credibility.md": "099c03fcd560b9c03acfd1870a68d5861e20062d5dfec1d6ea38dffaf7f825c1",
+    "references\\capabilities\\winner-curse-auction-bidding.md": "d1c621ebac5e26e0238aaf2d90af2961f75ac1eb166405556600501d49eca46c",
+    "references\\capability-index.md": "f3b52394e20b8662f8d9d19af283a3eff47e38695f47e03ec75a473ab1289e4f",
+    "references\\cheatsheet.md": "cdb2f269cde56a6e372af71e65050c19afc924ea14aed88c31caa29f5576dc14",
+    "references\\glossary.md": "8a433ddd7ea8a2b2afa15bfd43dd3c0954efd7a205d93856a976528fef4c9a35",
+    "references\\overview.md": "bead93d0fb45e0124322c0808d9a484a3c5cedc039f015920dc7e303032bd08b",
+    "SKILL.md": "3ef07417f1f6e22cc7b14da907dc251411a58673a56db3d8d46cda3d0cd5b8b1"
+  },
+  "note": "update/重编译前比对 published_hashes；检测到本地手改不得静默覆盖",
+  "bundle_id": "bundle.celue-boyi-v4",
+  "bundle_sha256": "764ce15e69d2f185fb550b5402efb21607b7e627f8c007d47bbe62db8fd2ee19",
+  "variant": "single",
+  "run_id": "run-20261028-211306-f10118",
+  "decision": {
+    "schema_version": 1,
+    "requested": "single",
+    "selected": "single",
+    "decision_policy": "single-first-v1",
+    "skill_budget": 8,
+    "promoted_count": 8,
+    "capability_count": 14,
+    "reasons": [
+      "用户显式选择 single，auto 决策器不覆盖用户选择"
+    ],
+    "alternative": "compact pack（1 个来源路由入口 + 8 个晋级 Skill，共 9 个可发现入口）",
+    "user_confirmed": true,
+    "preserve_strategy_on_update": true
+  }
+}

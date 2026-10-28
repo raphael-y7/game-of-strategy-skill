@@ -1,0 +1,48 @@
+{
+  "skill": "payoff-table-nash-equilibrium",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "两路资金互相猜对方买不买，最后会停在哪个组合？",
+      "expected_behavior": "填支付表→最优反应圈定均衡",
+      "notes": "同时行动双人"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "利好落地为什么理性卖出反而双输？帮我画成支付表",
+      "expected_behavior": "识别囚徒困境结构并给均衡",
+      "notes": "囚徒困境识别"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我用排除法剔掉几个情景，结论可靠吗？",
+      "expected_behavior": "弱占优剔除必须复查的规则",
+      "notes": "排障场景"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "先降价的抢客户、后降价的被动，帮我推演这个时间线",
+      "expected_behavior": "序贯行动，应直达 event-game-tree-rollback",
+      "notes": "跨skill混淆：时序轴"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "这个板块抱团还能撑多久",
+      "expected_behavior": "重复关系，应直达 cooperation-threshold-repeat-game 或 strategic-crowding-ess",
+      "notes": "跨skill混淆：次数轴"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "双方都是三个策略怎么办",
+      "expected_behavior": "可做但须提示计算量；无纯均衡时转 mixed-strategy-randomization",
+      "notes": "边界：多策略"
+    }
+  ]
+}

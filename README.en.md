@@ -2,28 +2,28 @@
 
 <p align="center"><a href="README.md">中文</a> | English</p>
 
-An AI skill pack for immediate use — it distills the game-analysis methods from Avinash Dixit, Susan Skeath and David Reiley's *Games of Strategy (4th Edition)* into 14 capability cards that can be triggered individually or combined.
+An AI skill pack for immediate use — it distills the game-theoretic analysis methods from Avinash Dixit, Susan Skeath and David Reilly's *Games of Strategy* into 14 capability cards that can be triggered individually or combined.
 
 It is not a book summary, nor a reading response — it breaks the reusable methodology in the book into skill modules that can be triggered, executed and tested.
 
 ## What these skills solve
 
-- Good news lands and the stock drops: you cannot tell whether the market is wrong, or both sides are each acting rationally and stably locked into a losing cell — nor which cell the deviation converges to
-- Price wars, capacity races and brokerage commission cuts keep going below cost: you cannot see that this is a prisoner's-dilemma payoff structure, nor judge who blinks first and how long the tacit deal lasts
-- Crowded trades, alliances, lock-up expiries and earn-out deadlines: you cannot state the critical rate of return or the break-up timing for cooperation, only guess that "it feels close to the end"
-- Research notes, stock tips, IR communication, buybacks and guidance: you cannot tell which sentence is costless cheap talk and which is a genuinely costly, credible signal
-- IPO subscriptions, private-placement pricing, block-trade discounts and merger arbitrage: you find out it was bad news only after you won — there is no adverse-selection check before you bid
-- Central-bank forward guidance, major-shareholder purchase commitments and policy deterrents: you cannot score the credibility of the commitment, nor separate commitment, threat and promise on observability and irreversibility
+- Good news lands and the stock falls anyway — you cannot tell whether "the market is wrong" or both sides are rationally and stably locked in a lose-lose cell, nor which cell the divergence converges to
+- A price war, capacity race or brokerage commission war keeps going below cost — you cannot see the prisoner's-dilemma payoff structure, nor judge who blinks first or how long the truce lasts
+- Co-operation with a known end date (crowded positions, alliances, lock-up expiries, earn-out maturities) — you cannot compute the threshold return and timing of collapse, only guess that "the end is near"
+- Research notes, stock tips, IR communication, buybacks and guidance all sit in front of you — you cannot separate zero-cost talk from genuinely costly, credible signals
+- IPO subscriptions, private placements, block trades at a discount, merger arbitrage — you find out the bad news after winning, because there is no adverse-selection check before bidding
+- Central-bank forward guidance, controlling-shareholder purchase commitments, policy deterrence — you cannot score the credibility of the commitment, nor tell promises, threats and warnings apart on observability and irreversibility
 
 ## What was distilled
 
-14 capability cards, organized in the order "classify first, solve second, handle information and structure last":
+14 capability cards, organized in the order "classify first, solve second, information and structure last". 8 of them are promoted to standalone skills and 6 stay inside the routing entry, loaded on demand (per-card destinations are listed in [INDEX.md](./INDEX.md)):
 
 - **Entry and classification**: `source-router` (six-dimension game classification and source routing entry)
-- **Foundational solutions**: `event-game-tree-rollback` (event game tree and rollback), `payoff-table-nash-equilibrium` (payoff tables and Nash equilibrium location), `mixed-strategy-randomization` (mixed strategies and randomized execution), `focal-point-selection` (focal points and key price levels)
-- **Information and credibility**: `credibility-signaling-filter` (signal and talk credibility), `strategic-moves-credibility` (strategic moves and credibility scoring)
-- **Cooperation and multi-player structure**: `cooperation-threshold-repeat-game` (cooperation thresholds in repeated games and break-up timing), `collective-action-stampede` (collective action and stampedes, multi-player criteria), `strategic-crowding-ess` (strategic crowding and crowded-trade collapse, evolutionary criteria)
-- **Rules and scenario pricing**: `mechanism-design-incentives` (mechanism design and incentive contracts), `brinkmanship-dual-threshold` (brinkmanship probabilistic threats and dual thresholds), `winner-curse-auction-bidding` (winner's curse and auction bidding), `batna-negotiation` (BATNA negotiation analysis)
+- **Core solution methods**: `event-game-tree-rollback` (event game tree rollback), `payoff-table-nash-equilibrium` (payoff tables and Nash equilibrium location), `mixed-strategy-randomization` (mixed strategies and randomized execution), `focal-point-selection` (focal points and key price levels)
+- **Information and credibility**: `credibility-signaling-filter` (signal and statement credibility), `strategic-moves-credibility` (strategic moves and credibility scoring)
+- **Co-operation and many-player structures**: `cooperation-threshold-repeat-game` (co-operation thresholds: repeated games and the timing of collapse), `collective-action-stampede` (collective action and stampedes: many-player criteria), `strategic-crowding-ess` (strategic crowding and crowded-position collapse: evolutionary criteria)
+- **Rules and scenario pricing**: `mechanism-design-incentives` (mechanism design and incentive contracts), `brinkmanship-dual-threshold` (brinkmanship probabilistic-threat dual thresholds), `winner-curse-auction-bidding` (winner's curse and auction bidding), `batna-negotiation` (BATNA negotiation analysis)
 
 ## Two packaging modes: single and pack
 
@@ -36,18 +36,18 @@ The same 14 capability cards are compiled twice, at two granularities. The conte
 | Triggering | Only the entry description participates in matching; routing happens after entry | The 8 high-frequency capabilities are matched directly, one hop fewer |
 | Upgrades | Replace 1 directory | Replace 9 directories |
 
-The 8 entries promoted to standalone skills in the pack (7 capability cards plus 1 routing entry):
+The 8 cards promoted to standalone skills in the pack:
 
-- `source-router` — six-dimension classification and source routing
-- `event-game-tree-rollback` — event game tree and rollback
+- `source-router` — six-dimension game classification and source routing entry
+- `event-game-tree-rollback` — event game tree rollback
 - `payoff-table-nash-equilibrium` — payoff tables and Nash equilibrium location
-- `cooperation-threshold-repeat-game` — cooperation thresholds
-- `credibility-signaling-filter` — signal and talk credibility
-- `strategic-moves-credibility` — strategic moves and credibility
+- `cooperation-threshold-repeat-game` — co-operation thresholds
+- `credibility-signaling-filter` — signal and statement credibility
+- `strategic-moves-credibility` — strategic moves and credibility scoring
 - `winner-curse-auction-bidding` — winner's curse and auction bidding
-- `strategic-crowding-ess` — strategic crowding and crowded-trade collapse
+- `strategic-crowding-ess` — strategic crowding and crowded-position collapse
 
-The 6 cards that were not promoted (`mixed-strategy-randomization`, `focal-point-selection`, `collective-action-stampede`, `brinkmanship-dual-threshold`, `batna-negotiation`, `mechanism-design-incentives`) stay in the router's `references/` and are reached through the routing entry, so no capability is lost.
+The 6 cards that are not promoted (`mixed-strategy-randomization`, `focal-point-selection`, `collective-action-stampede`, `brinkmanship-dual-threshold`, `batna-negotiation`, `mechanism-design-incentives`) stay in the router's `references/` and are reached through the routing entry — no capability is lost.
 
 ### Which one to install
 
@@ -56,7 +56,7 @@ Pick by the way you work, and **install only one**:
 | How you work | Recommended | Why |
 |---|---|---|
 | You use DSH / Codex / Claude Code with a skills directory and want a clean list | single | Takes 1 slot, loses no capabilities |
-| Your daily questions concentrate on "can I trust this / does this commitment count / how much should I bid / is this style crowded" | pack | Those are exactly the promoted standalone skills, matched directly |
+| Your daily questions concentrate on "can I trust this news / does this commitment count / how much should I bid / is this style crowded" | pack | Those are exactly the promoted standalone skills, matched directly |
 | You distribute to several agents or teammates who pick what they need | pack | They can install only the standalone skills they want |
 | You want to install once and maintain one directory | single | Upgrades replace a single directory |
 
@@ -64,87 +64,152 @@ Pick by the way you work, and **install only one**:
 
 ## Examples
 
-### Example 1: a price war below cost — why does it not stop?
+### Example 1: a price war below cost that will not stop
 
 **User question**
 
-"Two brokerages have pushed commission rates below cost. It is obviously lose-lose, so why can't it stop? Should I cut my rates too?"
+"Two brokerages have pushed commission rates below cost. It is obviously lose-lose, so why can't it stop? Should I cut mine too?"
 
 **How the skill reasons**
 
-- First `source-router`'s six questions: the timing is simultaneous (each sets its rate at the same time and cannot see the rival's current move) → route to `payoff-table-nash-equilibrium`
-- Draw the 2×2 payoff table, declaring the convention first: row player's payoff first, column player's second, with unit and direction on the same scale
-- Dominance subtraction: if "cut" is better against both rival choices, it is a strictly dominant strategy
-- Optimal-response analysis circles the best response cell by cell in both directions; a double-circled cell is a pure-strategy Nash equilibrium; then check whether that equilibrium cell is worse for both than "neither cuts"
-- If any weak dominance with ties was used along the way, re-check every cell — the book explicitly warns that weak-dominance elimination can drop equilibria
+- Run the six questions in `source-router`: actions are simultaneous (each sets rates at the same moment, blind to the other's move this round) → route to `payoff-table-nash-equilibrium`
+- Draw a 2×2 payoff table and declare the convention first: row player's payoff comes first, column player's second, same units and same direction
+- Dominance subtraction: if "cut" beats the alternative against both opponent choices, it is a strictly dominant strategy
+- Circle best responses cell by cell in both directions; a doubly circled cell is a pure-strategy Nash equilibrium; then check whether that cell is the worse lose-lose cell
+- If any weak-dominance elimination with equality was used, re-check every cell — the book explicitly warns that weak-dominance elimination can drop equilibria
 
-**Sample answer**
+**Example final answer**
 
-> Verdict: this is a prisoner's-dilemma payoff structure. "Lose-lose" is not market failure; it is the stable landing point of two rational players. The book's standard demonstration is Congress vs the Fed (Table 4-5): given either interest rate, Congress's best response is a deficit (4>3, 2>1); given either fiscal policy, the Fed's best response is high rates (4>3, 2>1); the only double-circled cell is (deficit, high rates) = (2,2), while (balanced, low rates) = (3,4) is better for both — rational players can stably lock into a second-best cell. Applied to the commission war: as long as "cut" is dominant in your payoff table, refusing to cut unilaterally just gives away share, and calling for a truce does nothing.
+> Conclusion: this is a prisoner's-dilemma payoff structure. The "lose-lose" outcome is not a market failure; it is the stable landing point of two rational players. The book's standard demo is Congress vs the Fed (Table 4-5): for either interest-rate choice, Congress's best response is deficit (4>3, 2>1); for either fiscal choice, the Fed's best response is high interest (4>3, 2>1); the unique doubly circled equilibrium is (deficit, high interest) = (2,2), while (balance, low interest) = (3,4) is better for both — rational players can stably lock into a suboptimal cell. Mapped onto the commission war: as long as "cut" is your dominant strategy in your own payoff table, refusing to cut unilaterally just donates share, and calling a truce by tacit agreement will not work.
 >
-> Two things you must supply. First, the payoffs: the book only gives teaching numbers, so share loss, fee rates and unit costs in your table are yours to estimate; if you cannot estimate them, output the qualitative direction ("cut is / is not dominant") instead of inventing numbers. Second, if you used an elimination with ties (say "treat a tie as not cutting for now"), re-check every cell — Table 4-6 (the Rowena-Colin game) is the book's example of weak-dominance elimination dropping two equilibria, and a sideways standoff is exactly the tie state most easily eliminated away.
+> Two things you have to supply. First, the payoff numbers: the book only gives teaching numbers, so share loss, fee rate and unit cost in your table must be estimated by you; if you cannot estimate them, do not fill in invented figures — output the qualitative direction ("cut is / is not a dominant strategy") instead. Second, if you used elimination with equality (say "treat a tie as no-cut"), re-check every cell — the Rowena-Colin game in Table 4-6 is the book's counter-example where weak-dominance elimination drops two equilibria, and stalemate states are exactly what gets eliminated.
 >
-> One more boundary: payoff tables are net expected payoffs, so tail losses belong in them. The book's Kreps game shows that a disaster cell with a tiny probability (1/1009 in the book's numbers) flips the "higher expected value" conclusion, so the blow-up line has to be in the table.
+> One more boundary: payoff tables are net expected returns, so tail losses must be written in. The book's Kreps game shows that a catastrophic cell with tiny probability (the book's magnitude is 1/1009) flips the "expected-value dominant" conclusion, so your ruin line has to enter the table.
 
-### Example 2: private-placement pricing — is bidding my fair value a sure win?
+### Example 2: a private placement at your own fair value — is winning a gain?
 
 **User question**
 
-"A company is running a private-placement book. I plan to bid the 20 yuan I calculated as fair value — if I get it, I make money, right?"
+"A company is pricing a private placement. If I bid my own fair value of 20, winning means profit, right?"
 
 **How the skill reasons**
 
-- Classify first: is the value common (one true value for everyone, each bidder holding a noisy estimate) or private (mostly own-use synergy)? Only common value triggers the curse correction
-- The two mandatory questions: (1) given what I know, would I buy at this price? (2) knowing that nobody else would bid this high and that is the only reason I can buy it, would I still? The second must be answered explicitly
-- Conditional-expectation check: if bid b is accepted, the true value lies between 0 and b, so the conditional mean is b/2; multiply by your operating improvement factor g; if g×(b/2) < b, i.e. g < 2, any positive bid that wins loses money
-- Mechanism mapping: a placement book resembles a first-price mechanism, so bid below your true valuation; a call auction resembles a second-price mechanism, where bidding your true value is dominant
-- Output: the corrected bid ceiling, the reason for the markdown, and the one-line mechanism strategy
+- Classify first: common value (one true value for everyone, each bidder holds a noisy estimate) or private value (mostly your own synergies) — only common value triggers the curse correction
+- Two mandatory checks: (1) given what I know, would I pay this price? (2) given that nobody else would bid this high, and that is the only reason I can buy it, would I still pay it? The second question must be answered explicitly
+- Conditional-expectation recomputation: bid b is accepted → true value lies between 0 and b → conditional mean b/2 → times your operating-improvement factor g; if g×(b/2) < b, i.e. g < 2, any positive bid that wins loses money
+- Mechanism mapping: private-placement pricing is close to a first-price mechanism, so bid below your true valuation; a call auction is close to second-price, where bidding your true valuation is dominant
+- Summary output: the revised bid ceiling + the reason for the markdown + one sentence on the mechanism-matching strategy
 
-**Sample answer**
+**Example final answer**
 
-> Do not bid 20 yet. "If I win I make money" assumes your valuation is right, but in a common-value auction winning is itself bad news: you can only win because every rival's estimate is below yours, so yours is the most optimistic one. The book's Takic merger example is clean — if bid b is accepted, the target's value is uniform between 0 and b, so the conditional mean is b/2; even with a 50% operating improvement, the conditional value is only 1.5×(b/2) = 0.75b, less than b. In other words, you win only when winning is not worth it.
+> Do not bid 20 yet. "Winning means profit" assumes your valuation is correct, but in a common-value auction winning is itself bad news: if you can win, every rival's estimate is below yours, so your estimate is precisely the most optimistic one. The book's Takic merger example computes this cleanly — bid b being accepted means the target's value is uniform on 0 to b, so the conditional mean is b/2; even if your management improves it by 50%, the conditional value is only 1.5×(b/2) = 0.75b, below b. You win only when winning is not worth it.
 >
-> Follow the flow: answer question two first — "knowing nobody else would bid 20 and that is why I can buy it, do I still want it?" — then compute g×(b/2) against b with your own improvement factor. A placement book is a first-price mechanism, so the right move is to bid below your true valuation, not to bid it in full.
+> Follow the flow: answer question two first — "given nobody would bid 20 and that is why I can buy it, would I still pay it" — then compute with your own improvement factor g whether g×(b/2) exceeds b. Private placement is a first-price mechanism, so the correct move is to bid below true valuation, not to bid your maximum.
 >
-> One honest caveat: the book gives the direction of the markdown and the g < 2 criterion, but no closed-form for how much to mark down — the card's own boundary section lists this as a blind spot. The size of the markdown is yours to define and write into the plan; do not pretend the book has a ready formula. Also, the oil-lease example's ±100 million uniform error and 10 bidders are teaching assumptions; in real markets estimation errors are correlated (everyone reads the same research), so the actual markdown is usually larger than the uniform case suggests. The book's MBA experiment — only 5 of 69 participants kept shading their bids — is a reminder that knowing the curse exists is not the same as executing the correction.
+> This must be stated honestly: the book gives only the direction ("adjust downward") and the criterion g<2, not a closed-form answer for how much to cut — the card's boundary section lists this as a blind spot. The markdown size has to be set by you and written into your plan; do not pretend the book has a ready formula. Also, the ±1 billion uniform error and the 10 bidders in the oil-lease example are teaching settings; in real markets estimation errors are correlated (everyone reads the same research note), so the practical markdown is usually larger than the uniform case. The book's MBA experiment (only 5 of 69 participants kept bidding down) is a reminder: knowing the curse exists is not the same as being able to correct for it.
 
 ## How these skills were generated
 
-These skills were produced with the **[cangjie-skill](https://github.com/kangarooking/cangjie-skill)** RIA-TV++ pipeline, in six stages:
+This skill set was produced by the RIA-TV++ pipeline of **[cangjie-skill](https://github.com/kangarooking/cangjie-skill)**, in six stages:
 
-1. **Whole-book comprehension (Adler analysis)** — apply Mortimer Adler's analytical reading method to the book: structure, interpretation, criticism, application
-2. **Parallel extraction** — several specialized extractors (frameworks, principles, cases, counter-examples, terminology) mine candidate methodology units from the source text
-3. **Triple verification** — every candidate must pass three checks: at least two independent in-book supports (cross-domain), the ability to answer questions the book never explicitly addresses (predictive power), and not being common sense (distinctiveness)
-4. **RIA++ construction** — structure each unit along R (quotation) / I (restatement in own words) / A1 (in-book case) / A2 (future trigger scenario) / E (executable steps) / B (boundaries and blind spots)
-5. **Zettelkasten linking** — map dependencies, contrasts and combinations between cards, producing the capability index and routing table
-6. **Trigger and output testing** — write trigger blind tests (including decoy questions: fire when they should, stay silent when they should not) and output evaluation scenarios for every card; failing cards go back for rework and are re-verified afterwards
+1. **Whole-book comprehension (Adler analysis)** — Mortimer Adler's analytical reading method, breaking the book down through structure, interpretation, criticism and application
+2. **Parallel extraction** — several specialized extractors (frameworks, principles, cases, counter-examples, terminology) work at once to pull candidate methodology units out of the text
+3. **Triple verification** — every candidate must pass three tests: at least two independent in-book corroborations (cross-domain), the power to answer questions the book never states, and not being common sense (distinctiveness)
+4. **RIA++ construction** — structure each unit along six dimensions: R (source quote) / I (restatement in our own words) / A1 (in-book case) / A2 (future trigger scenario) / E (executable steps) / B (boundaries and blind spots)
+5. **Zettelkasten linking** — map dependencies, contrasts and combinations between cards, then generate the capability index and routing table
+6. **Trigger and output testing** — design blind trigger tests for every card (including decoys: it must trigger when it should and stay silent when it should not) plus output evaluation scenarios; failing cards go back for rework and are regression-tested afterwards
 
-A few book-specific decisions also shaped the result: the original has no direct stock-market case (the auction and negotiation chapters come closest), so the "game concept → market scenario" mapping and its parameters were built inside the cards; the voting chapter and the biological mathematics of the evolutionary chapter were kept as ideas only, without computation; and the mechanism-design chapter was a book-level scoping decision, covered indirectly through the screening half of the credibility card.
+Several book-specific decisions shaped the result: the book has no direct stock-market cases (the auction and negotiation chapters come closest), so the "game concept → market scenario" mapping is built by the cards themselves with self-declared parameters; the voting-system chapter and the biological mathematics of the evolutionary chapter are used for their ideas only, not computed; and the mechanism-design chapter is a book-level scoping decision, covered only indirectly by the screening half of the credibility card.
 
-## Repository layout
+## Testing and verification
+
+`evals/` holds the trigger test cases published together with the generation process, one file per skill: 9 files, 55 cases in total.
+
+- **should_trigger, 27 cases**: does it trigger when it should, and does it route to the right capability card
+- **should_not_trigger, 18 cases**: decoys — pure technical-indicator calculations, and questions already specific enough to hit one card directly (the entry must not swallow them); silence is the expected behaviour
+- **edge_case, 10 cases**: personal decisions versus games, and missing elements where the skill must ask instead of filling in
+
+These files record cases and expected behaviour (`expected_behavior`), not scores. No scoring record is shipped in this repository; you can run the cases yourself.
+
+## Repository structure
 
 ```text
 game-of-strategy-skill/
-├── README.md                      ← Chinese version
+├── README.md                      ← the Chinese README
 ├── README.en.md                   ← you are reading this
 ├── LICENSE                        ← MIT
-├── BOOK_OVERVIEW.md               ← whole-book comprehension (Adler four-step, stage 0 output)
-├── verified.md                    ← triple-verification conclusions for 43 canonical units
-├── single/                        ← single-entry build
+├── INDEX.md                       ← skill map: destinations and dependencies of the 14 cards
+├── BOOK_OVERVIEW.md               ← whole-book comprehension (Adler four-step breakdown, stage 0)
+├── verified.md                    ← triple-verification verdicts for 47 candidates (35 passed / 12 rejected)
+├── bundle/                        ← the bundle this repository was compiled from (audit material)
+│   ├── verified.yaml              ← the 14 canonical units (slug / intents / destination / promotion gate)
+│   ├── cards/                     ← the 14 capability card source files
+│   │   ├── celue-00-source-router.md
+│   │   ├── celue-01-event-game-tree-rollback.md
+│   │   ├── celue-02-payoff-table-nash-equilibrium.md
+│   │   ├── celue-03-cooperation-threshold-repeat-game.md
+│   │   ├── celue-04-mixed-strategy-randomization.md
+│   │   ├── celue-05-credibility-signaling-filter.md
+│   │   ├── celue-06-focal-point-selection.md
+│   │   ├── celue-07-strategic-moves-credibility.md
+│   │   ├── celue-08-collective-action-stampede.md
+│   │   ├── celue-09-brinkmanship-dual-threshold.md
+│   │   ├── celue-10-winner-curse-auction-bidding.md
+│   │   ├── celue-11-batna-negotiation.md
+│   │   ├── celue-12-strategic-crowding-ess.md
+│   │   └── celue-13-mechanism-design-incentives.md
+│   └── book/
+│       ├── overview.md            ← whole-book overview
+│       └── glossary.md            ← glossary
+├── single/                        ← single-entry mode
 │   └── game-of-strategy-skill/
 │       ├── SKILL.md               ← entry: triggers + routing table + loading rules
+│       ├── BUILD_MANIFEST.json    ← build manifest with file hashes
 │       └── references/
 │           ├── overview.md        ← whole-book overview
 │           ├── capability-index.md  ← full intent and keyword index
-│           ├── cheatsheet.md      ← decision-rule quick reference
+│           ├── cheatsheet.md      ← decision-rule cheatsheet
 │           ├── glossary.md        ← glossary
-│           └── capabilities/      ← 14 capability cards
-├── pack/                          ← multi-entry build (compact pack)
-│   ├── BUILD_MANIFEST.json        ← build manifest and file hashes
-│   ├── capability-destinations.json  ← promotion destinations for the 14 cards
-│   ├── game-of-strategy-skill/    ← source router entry
-│   │   ├── SKILL.md
-│   │   └── references/            ← 14 cards + indexes, called by the router
+│           └── capabilities/      ← the 14 capability cards
+│               ├── source-router.md
+│               ├── event-game-tree-rollback.md
+│               ├── payoff-table-nash-equilibrium.md
+│               ├── cooperation-threshold-repeat-game.md
+│               ├── mixed-strategy-randomization.md
+│               ├── credibility-signaling-filter.md
+│               ├── focal-point-selection.md
+│               ├── strategic-moves-credibility.md
+│               ├── collective-action-stampede.md
+│               ├── brinkmanship-dual-threshold.md
+│               ├── winner-curse-auction-bidding.md
+│               ├── batna-negotiation.md
+│               ├── strategic-crowding-ess.md
+│               └── mechanism-design-incentives.md
+├── pack/                          ← multi-entry mode (compact pack)
+│   ├── BUILD_MANIFEST.json        ← build manifest with file hashes
+│   ├── capability-destinations.json  ← promotion destinations of the 14 cards
+│   ├── game-of-strategy-skill-router/
+│   │   ├── SKILL.md               ← source routing entry
+│   │   └── references/            ← the 14 cards + index, used internally by the router
+│   │       ├── overview.md
+│   │       ├── capability-index.md
+│   │       ├── cheatsheet.md
+│   │       ├── glossary.md
+│   │       └── capabilities/      ← the 14 capability cards
+│   │           ├── source-router.md
+│   │           ├── event-game-tree-rollback.md
+│   │           ├── payoff-table-nash-equilibrium.md
+│   │           ├── cooperation-threshold-repeat-game.md
+│   │           ├── mixed-strategy-randomization.md
+│   │           ├── credibility-signaling-filter.md
+│   │           ├── focal-point-selection.md
+│   │           ├── strategic-moves-credibility.md
+│   │           ├── collective-action-stampede.md
+│   │           ├── brinkmanship-dual-threshold.md
+│   │           ├── winner-curse-auction-bidding.md
+│   │           ├── batna-negotiation.md
+│   │           ├── strategic-crowding-ess.md
+│   │           └── mechanism-design-incentives.md
 │   ├── source-router/
 │   │   └── SKILL.md
 │   ├── event-game-tree-rollback/
@@ -161,9 +226,19 @@ game-of-strategy-skill/
 │   │   └── SKILL.md
 │   └── strategic-crowding-ess/
 │       └── SKILL.md
+└── evals/                         ← trigger test cases (55)
+    ├── game-of-strategy-skill.json
+    ├── source-router.json
+    ├── event-game-tree-rollback.json
+    ├── payoff-table-nash-equilibrium.json
+    ├── cooperation-threshold-repeat-game.json
+    ├── credibility-signaling-filter.json
+    ├── strategic-moves-credibility.json
+    ├── winner-curse-auction-bidding.json
+    └── strategic-crowding-ess.json
 ```
 
-## Usage
+## How to use
 
 Clone the repository first:
 
@@ -171,7 +246,7 @@ Clone the repository first:
 git clone https://github.com/raphael-y7/game-of-strategy-skill.git
 ```
 
-### Install single (recommended first try)
+### Install single (try this first)
 
 ```bash
 # macOS / Linux
@@ -185,12 +260,12 @@ Copy-Item -Recurse .\game-of-strategy-skill\single\game-of-strategy-skill "$env:
 
 ### Install pack
 
-Copy only the directories that contain a `SKILL.md`; do not copy the two JSON files under `pack/` into your skills directory:
+Copy only the directories that contain a `SKILL.md`; do not copy the two json files under `pack/` into the skills directory:
 
 ```bash
 # macOS / Linux
 cd game-of-strategy-skill/pack
-cp -r game-of-strategy-skill \
+cp -r game-of-strategy-skill-router \
       source-router \
       event-game-tree-rollback \
       payoff-table-nash-equilibrium \
@@ -205,29 +280,26 @@ cp -r game-of-strategy-skill \
 # Windows
 $pack = ".\game-of-strategy-skill\pack"
 $dest = "$env:USERPROFILE\.agents\skills"
-@('game-of-strategy-skill','source-router','event-game-tree-rollback','payoff-table-nash-equilibrium','cooperation-threshold-repeat-game','credibility-signaling-filter','strategic-moves-credibility','winner-curse-auction-bidding','strategic-crowding-ess') |
+@('game-of-strategy-skill-router','source-router','event-game-tree-rollback','payoff-table-nash-equilibrium','cooperation-threshold-repeat-game','credibility-signaling-filter','strategic-moves-credibility','winner-curse-auction-bidding','strategic-crowding-ess') |
   ForEach-Object { Copy-Item -Recurse -LiteralPath (Join-Path $pack $_) -Destination $dest }
 ```
 
 > `~/.agents/skills` is the DSH skills directory; with another agent, use its own skills directory (for example `~/.claude/skills` for Claude Code).
 
-### How to verify the install
+### How to confirm it works
 
-Ask: "This company is running a private-placement book — how much should I bid?" If the agent goes straight into `winner-curse-auction-bidding`'s two-question check and conditional-expectation calculation instead of giving generic valuation commentary, the install works. With the single build it reads the entry first and then routes to a card; with the pack build the matching capability is hit directly.
+Ask "this company is pricing a private placement, how much should I bid", and see whether the agent goes straight into the two-question check and conditional-expectation recomputation of `winner-curse-auction-bidding` instead of giving you generic valuation talk. With single installed it reads the entry first and follows the routing table into a card; with pack installed the matching capability is hit directly.
 
-## Sources
+## Source
 
-- *Games of Strategy* by Avinash Dixit, Susan Skeath and David Reiley
-- Distilled from the whole book, producing 14 capability cards
+- *Games of Strategy* by Avinash Dixit, Susan Skeath and David Reilly
 
-## Notice
+## Disclaimer
 
-This repository publishes distilled skills, indexes and rule quick references only. It contains no PDF, EPUB, OCR files, screenshots or full-book transcripts of the source book. Quotations that appear in the capability cards serve solely to attribute methodology and keep the material auditable.
+This repository publishes only the distilled skills, indexes and rule cheatsheets. It contains no PDF, EPUB, OCR files, screenshots or full transcript of the book. Quotations inside the capability cards serve only to cite the methodology's origin and keep the material auditable.
 
-All numeric criteria in the book (cooperation thresholds, brinkmanship dual thresholds, ESS critical proportions, the winner's-curse conditional-expectation factor, etc.) are case- and teaching-example-based rules without statistical backtesting; test them on your own instruments and declare the convention you use. Nothing in this repository is investment advice.
-
+All numeric criteria in this repository (co-operation threshold returns, brinkmanship dual thresholds, ESS critical proportions, the conditional-expectation coefficient of the winner's curse, and so on) are inductions from cases and teaching exercises; the book provides no statistical backtesting support. Test them against your own instruments and declare the conventions you use. Nothing in this repository is investment advice.
 
 ## License
 
 [MIT](./LICENSE)
-

@@ -1,65 +1,65 @@
 {
   "generated_by": "cangjie-tools v2.5.0",
   "bundle_id": "bundle.celue-boyi-v4",
-  "router_entrypoint": "game-of-strategy-skill",
+  "router_entrypoint": "game-of-strategy-skill-router",
   "entrypoint_count": 9,
   "capability_count": 14,
   "destinations": {
     "celue-00-source-router": {
       "promoted_to": "source-router",
-      "router_view": "game-of-strategy-skill/references/capabilities/source-router.md"
+      "router_view": "game-of-strategy-skill-router/references/capabilities/source-router.md"
     },
     "celue-01-event-game-tree-rollback": {
       "promoted_to": "event-game-tree-rollback",
-      "router_view": "game-of-strategy-skill/references/capabilities/event-game-tree-rollback.md"
+      "router_view": "game-of-strategy-skill-router/references/capabilities/event-game-tree-rollback.md"
     },
     "celue-02-payoff-table-nash-equilibrium": {
       "promoted_to": "payoff-table-nash-equilibrium",
-      "router_view": "game-of-strategy-skill/references/capabilities/payoff-table-nash-equilibrium.md"
+      "router_view": "game-of-strategy-skill-router/references/capabilities/payoff-table-nash-equilibrium.md"
     },
     "celue-03-cooperation-threshold-repeat-game": {
       "promoted_to": "cooperation-threshold-repeat-game",
-      "router_view": "game-of-strategy-skill/references/capabilities/cooperation-threshold-repeat-game.md"
+      "router_view": "game-of-strategy-skill-router/references/capabilities/cooperation-threshold-repeat-game.md"
     },
     "celue-04-mixed-strategy-randomization": {
-      "served_by": "game-of-strategy-skill",
-      "card": "game-of-strategy-skill/references/capabilities/mixed-strategy-randomization.md"
+      "served_by": "game-of-strategy-skill-router",
+      "card": "game-of-strategy-skill-router/references/capabilities/mixed-strategy-randomization.md"
     },
     "celue-05-credibility-signaling-filter": {
       "promoted_to": "credibility-signaling-filter",
-      "router_view": "game-of-strategy-skill/references/capabilities/credibility-signaling-filter.md"
+      "router_view": "game-of-strategy-skill-router/references/capabilities/credibility-signaling-filter.md"
     },
     "celue-06-focal-point-selection": {
-      "served_by": "game-of-strategy-skill",
-      "card": "game-of-strategy-skill/references/capabilities/focal-point-selection.md"
+      "served_by": "game-of-strategy-skill-router",
+      "card": "game-of-strategy-skill-router/references/capabilities/focal-point-selection.md"
     },
     "celue-07-strategic-moves-credibility": {
       "promoted_to": "strategic-moves-credibility",
-      "router_view": "game-of-strategy-skill/references/capabilities/strategic-moves-credibility.md"
+      "router_view": "game-of-strategy-skill-router/references/capabilities/strategic-moves-credibility.md"
     },
     "celue-08-collective-action-stampede": {
-      "served_by": "game-of-strategy-skill",
-      "card": "game-of-strategy-skill/references/capabilities/collective-action-stampede.md"
+      "served_by": "game-of-strategy-skill-router",
+      "card": "game-of-strategy-skill-router/references/capabilities/collective-action-stampede.md"
     },
     "celue-09-brinkmanship-dual-threshold": {
-      "served_by": "game-of-strategy-skill",
-      "card": "game-of-strategy-skill/references/capabilities/brinkmanship-dual-threshold.md"
+      "served_by": "game-of-strategy-skill-router",
+      "card": "game-of-strategy-skill-router/references/capabilities/brinkmanship-dual-threshold.md"
     },
     "celue-10-winner-curse-auction-bidding": {
       "promoted_to": "winner-curse-auction-bidding",
-      "router_view": "game-of-strategy-skill/references/capabilities/winner-curse-auction-bidding.md"
+      "router_view": "game-of-strategy-skill-router/references/capabilities/winner-curse-auction-bidding.md"
     },
     "celue-11-batna-negotiation": {
-      "served_by": "game-of-strategy-skill",
-      "card": "game-of-strategy-skill/references/capabilities/batna-negotiation.md"
+      "served_by": "game-of-strategy-skill-router",
+      "card": "game-of-strategy-skill-router/references/capabilities/batna-negotiation.md"
     },
     "celue-12-strategic-crowding-ess": {
       "promoted_to": "strategic-crowding-ess",
-      "router_view": "game-of-strategy-skill/references/capabilities/strategic-crowding-ess.md"
+      "router_view": "game-of-strategy-skill-router/references/capabilities/strategic-crowding-ess.md"
     },
     "celue-13-mechanism-design-incentives": {
-      "served_by": "game-of-strategy-skill",
-      "card": "game-of-strategy-skill/references/capabilities/mechanism-design-incentives.md"
+      "served_by": "game-of-strategy-skill-router",
+      "card": "game-of-strategy-skill-router/references/capabilities/mechanism-design-incentives.md"
     }
   }
 }

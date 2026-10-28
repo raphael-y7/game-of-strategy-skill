@@ -1,15 +1,15 @@
 ---
 name: game-of-strategy-skill
 description: |
-  《策略博弈（第4版）》博弈分析来源路由入口：用行动时序/利益冲突/次数/信息/规则/协调六问给股票投资情境分类，路由到博弈树逆推、纳什均衡、合作临界值、信号可信度、策略性行动、赢家诅咒、策略拥挤等13张能力卡。当用户的问题不明确属于哪个具体博弈分析任务时由此入口分类分派。
+  以《策略博弈（第4版）》方法论辅助股票投资分析：把市场局面翻译为博弈结构（参与者/时序/信息/支付），选择正确解概念（逆推/纳什均衡/ESS）得出可核对的行为预测，覆盖事件博弈树、合作瓦解临界、信号可信度、赢家诅咒、策略拥挤五类核心任务。适用于用户要求用博弈论分析个股事件、行业格局、政策博弈、打新与并购谈判等场景。
 metadata:
   cangjie.generated-by: cangjie-tools v2.5.0
-  cangjie.variant: router
+  cangjie.variant: single
   cangjie.bundle-id: bundle.celue-boyi-v4
   cangjie.capability-count: 14
-  cangjie.entrypoint-count: 9
+  cangjie.entrypoint-count: 1
 ---
-# 策略博弈（第4版） — 来源路由入口（compact pack）
+# 策略博弈（第4版） — 全书能力入口
 
 ## 触发与不触发
 
@@ -32,19 +32,19 @@ metadata:
 
 | 用户意图 | 先读 | 补读/备注 |
 |---|---|---|
-| 我遇到的这个问题是决策问题还是博弈问题？；这个博弈是序贯还是同时、一次性还是重复、信息对称吗？；该按哪张能力卡来分析这个局面？ | references/capabilities/source-router.md | 已晋级为独立 Skill `source-router`（已安装时优先直接使用；本卡仅作原文与背景补充） |
-| 这个事件链条接下来会怎么走？；从终点倒推，各方现在的最优行动是什么？；含不确定性的多阶段事件怎么定价？ | references/capabilities/event-game-tree-rollback.md | 已晋级为独立 Skill `event-game-tree-rollback`（已安装时优先直接使用；本卡仅作原文与背景补充） |
-| 双方会落到哪个格子？为什么理性还双输？；怎么画支付表、怎么找全部纳什均衡？；剔除劣势策略会不会漏掉均衡？ | references/capabilities/payoff-table-nash-equilibrium.md | 已晋级为独立 Skill `payoff-table-nash-equilibrium`（已安装时优先直接使用；本卡仅作原文与背景补充） |
-| 这个抱团/联盟能维持多久？何时会瓦解？；维持合作需要的最低收益率/延续概率是多少？；限售解禁、对赌到期这类时点有什么风险？ | references/capabilities/cooperation-threshold-repeat-game.md | 已晋级为独立 Skill `cooperation-threshold-repeat-game`（已安装时优先直接使用；本卡仅作原文与背景补充） |
+| 我遇到的这个问题是决策问题还是博弈问题？；这个博弈是序贯还是同时、一次性还是重复、信息对称吗？；该按哪张能力卡来分析这个局面？ | references/capabilities/source-router.md | references/capabilities/event-game-tree-rollback.md、references/capabilities/payoff-table-nash-equilibrium.md、references/capabilities/credibility-signaling-filter.md、references/capabilities/strategic-crowding-ess.md |
+| 这个事件链条接下来会怎么走？；从终点倒推，各方现在的最优行动是什么？；含不确定性的多阶段事件怎么定价？ | references/capabilities/event-game-tree-rollback.md | references/capabilities/source-router.md、references/capabilities/brinkmanship-dual-threshold.md、references/capabilities/cooperation-threshold-repeat-game.md、references/capabilities/strategic-moves-credibility.md |
+| 双方会落到哪个格子？为什么理性还双输？；怎么画支付表、怎么找全部纳什均衡？；剔除劣势策略会不会漏掉均衡？ | references/capabilities/payoff-table-nash-equilibrium.md | references/capabilities/source-router.md、references/capabilities/mixed-strategy-randomization.md、references/capabilities/focal-point-selection.md、references/capabilities/collective-action-stampede.md |
+| 这个抱团/联盟能维持多久？何时会瓦解？；维持合作需要的最低收益率/延续概率是多少？；限售解禁、对赌到期这类时点有什么风险？ | references/capabilities/cooperation-threshold-repeat-game.md | references/capabilities/event-game-tree-rollback.md、references/capabilities/strategic-crowding-ess.md、references/capabilities/collective-action-stampede.md、references/capabilities/payoff-table-nash-equilibrium.md |
 | 对手下一步会怎么随机化？我该押哪个方向？；怎么防止自己的模式被识别？ | references/capabilities/mixed-strategy-randomization.md | references/capabilities/payoff-table-nash-equilibrium.md、references/capabilities/strategic-crowding-ess.md、references/capabilities/brinkmanship-dual-threshold.md |
-| 这份研报/这篇荐股能信几分？；管理层的回购/指引是真是假？；这个市场什么时候会发生逆向选择崩盘？ | references/capabilities/credibility-signaling-filter.md | 已晋级为独立 Skill `credibility-signaling-filter`（已安装时优先直接使用；本卡仅作原文与背景补充） |
+| 这份研报/这篇荐股能信几分？；管理层的回购/指引是真是假？；这个市场什么时候会发生逆向选择崩盘？ | references/capabilities/credibility-signaling-filter.md | references/capabilities/strategic-moves-credibility.md、references/capabilities/source-router.md、references/capabilities/mechanism-design-incentives.md、references/capabilities/winner-curse-auction-bidding.md |
 | 多重均衡下市场会收敛到哪个？；整数关口/前高为什么有效？何时失效？ | references/capabilities/focal-point-selection.md | references/capabilities/payoff-table-nash-equilibrium.md、references/capabilities/collective-action-stampede.md、references/capabilities/strategic-crowding-ess.md |
-| 央行/大股东/庄家这个表态算数吗？；这份承诺公告的含金量怎么打分？；对手的策略性行动怎么反制？ | references/capabilities/strategic-moves-credibility.md | 已晋级为独立 Skill `strategic-moves-credibility`（已安装时优先直接使用；本卡仅作原文与背景补充） |
+| 央行/大股东/庄家这个表态算数吗？；这份承诺公告的含金量怎么打分？；对手的策略性行动怎么反制？ | references/capabilities/strategic-moves-credibility.md | references/capabilities/credibility-signaling-filter.md、references/capabilities/brinkmanship-dual-threshold.md、references/capabilities/batna-negotiation.md、references/capabilities/mechanism-design-incentives.md |
 | 这个抱团/挤兑处在什么阶段？临界人数到了吗？；策略使用者还有多少涌入空间？；流动性挤兑的底部在哪里？ | references/capabilities/collective-action-stampede.md | references/capabilities/strategic-crowding-ess.md、references/capabilities/cooperation-threshold-repeat-game.md、references/capabilities/payoff-table-nash-equilibrium.md、references/capabilities/focal-point-selection.md |
 | 这个风险事件的概率威胁可行吗？；事件溢价该怎么给、撤退线画在哪？ | references/capabilities/brinkmanship-dual-threshold.md | references/capabilities/strategic-moves-credibility.md、references/capabilities/event-game-tree-rollback.md、references/capabilities/batna-negotiation.md、references/capabilities/mixed-strategy-randomization.md |
-| 打新/定增/大宗该出多少价？；中了标是不是反而意味着坏消息？；这个拍卖机制对应什么出价策略？ | references/capabilities/winner-curse-auction-bidding.md | 已晋级为独立 Skill `winner-curse-auction-bidding`（已安装时优先直接使用；本卡仅作原文与背景补充） |
+| 打新/定增/大宗该出多少价？；中了标是不是反而意味着坏消息？；这个拍卖机制对应什么出价策略？ | references/capabilities/winner-curse-auction-bidding.md | references/capabilities/credibility-signaling-filter.md、references/capabilities/payoff-table-nash-equilibrium.md、references/capabilities/mechanism-design-incentives.md、references/capabilities/batna-negotiation.md |
 | 这单并购/定增的成交区间在哪？；弱势方怎么改进谈判结果？；对方拖得起吗？ | references/capabilities/batna-negotiation.md | references/capabilities/strategic-moves-credibility.md、references/capabilities/winner-curse-auction-bidding.md、references/capabilities/brinkmanship-dual-threshold.md、references/capabilities/event-game-tree-rollback.md |
-| 这个风格/策略现在挤不挤？何时瓦解？；我的策略能抵抗抢跑变异吗？；趋势的临界持仓占比是多少？ | references/capabilities/strategic-crowding-ess.md | 已晋级为独立 Skill `strategic-crowding-ess`（已安装时优先直接使用；本卡仅作原文与背景补充） |
+| 这个风格/策略现在挤不挤？何时瓦解？；我的策略能抵抗抢跑变异吗？；趋势的临界持仓占比是多少？ | references/capabilities/strategic-crowding-ess.md | references/capabilities/collective-action-stampede.md、references/capabilities/cooperation-threshold-repeat-game.md、references/capabilities/mixed-strategy-randomization.md、references/capabilities/focal-point-selection.md |
 | 设计或评估激励机制/契约条款；分析信息披露规则与说真话条件；判断契约是否满足激励相容与参与约束 | references/capabilities/mechanism-design-incentives.md | references/capabilities/credibility-signaling-filter.md、references/capabilities/strategic-moves-credibility.md、references/capabilities/winner-curse-auction-bidding.md、references/capabilities/payoff-table-nash-equilibrium.md |
 
 **非能力类查询**：

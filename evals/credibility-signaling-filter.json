@@ -1,0 +1,48 @@
+{
+  "skill": "credibility-signaling-filter",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "荐股群老师收会员费荐票，能信几分？",
+      "expected_behavior": "利益一致度分级→廉价磋商可信度评级",
+      "notes": "顾问佣金结构"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "一堆公司同时发增持公告，算利好吗？",
+      "expected_behavior": "信号差异成本检验→混同/分离判型",
+      "notes": "公告信号"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "好车车主都退出了，什么条件下整个资产池崩？",
+      "expected_behavior": "柠檬市场逆向选择临界分析",
+      "notes": "逆向选择"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "大股东已真金白银增持且锁定18个月，这个承诺算不算数？",
+      "expected_behavior": "行动置信度评估，应直达 strategic-moves-credibility",
+      "notes": "跨skill混淆：话语vs行动"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "央行降准对市场整体什么影响",
+      "expected_behavior": "宏观事件非信号甄别，不调用",
+      "notes": "诱饵：无不对称信息"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "研报里既说了业绩又给了目标价",
+      "expected_behavior": "拆分：信息含量走本卡，目标价出价逻辑不属本卡",
+      "notes": "边界：混合内容"
+    }
+  ]
+}

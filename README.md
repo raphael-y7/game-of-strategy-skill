@@ -2,7 +2,7 @@
 
 <p align="center">中文 | <a href="README.en.md">English</a></p>
 
-一套可直接使用的 AI skill 工具包——把阿维纳什·迪克西特、苏珊·斯克丝与戴维·赖利《策略博弈（第4版）》里的博弈分析方法，蒸馏成 14 张可单独触发、也可组合调用的能力卡。
+一套可直接使用的 AI skill 工具包——把阿维纳什·迪克西特、苏珊·斯克丝与戴维·赖利《策略博弈》里的博弈分析方法，蒸馏成 14 张可单独触发、也可组合调用的能力卡。
 
 它不是原书摘要，也不是读后感，而是把书中可复用的方法论拆成可触发、可执行、可测试的 skill 模块。
 
@@ -17,12 +17,12 @@
 
 ## 蒸馏了什么
 
-14 张能力卡，按"先分类、再解法、后信息与结构"的顺序组织：
+14 张能力卡，按"先分类、再解法、后信息与结构"的顺序组织。其中 8 张晋级为可独立触发的 skill，6 张留在路由入口内按需加载（去向逐张见 [INDEX.md](./INDEX.md)）：
 
 - **入口与分类**：`source-router`（博弈分类六维度与来源路由入口）
 - **基础解法**：`event-game-tree-rollback`（事件博弈树逆推）、`payoff-table-nash-equilibrium`（支付表与纳什均衡定位）、`mixed-strategy-randomization`（混合策略与随机化执行）、`focal-point-selection`（聚点与关键点位选择）
 - **信息与可信度**：`credibility-signaling-filter`（信号与话语可信度判定）、`strategic-moves-credibility`（策略性行动与置信度评估）
-- **合作与多人结构**：`cooperation-threshold-repeat-game`（合作临界值计算，重复博弈与瓦解时点）、`collective-action-stampede`（集体行动与踩踏，多人博弈判据）、`strategic-crowding-ess`（策略拥挤与抱团瓦解，进化博弈判据）
+- **合作与多人结构**：`cooperation-threshold-repeat-game`（合作临界值计算：重复博弈与瓦解时点）、`collective-action-stampede`（集体行动与踩踏：多人博弈判据）、`strategic-crowding-ess`（策略拥挤与抱团瓦解：进化博弈判据）
 - **规则与场景定价**：`mechanism-design-incentives`（机制设计与激励契约分析）、`brinkmanship-dual-threshold`（边缘政策概率威胁双阈值）、`winner-curse-auction-bidding`（赢家诅咒与拍卖出价）、`batna-negotiation`（BATNA 谈判分析）
 
 ## 两种打包模式：single 与 pack
@@ -36,7 +36,7 @@
 | 触发方式 | 只有入口的 description 参与匹配，进入后靠路由表分流 | 8 个高频能力可被 description 直接命中，少一跳 |
 | 升级维护 | 替换 1 个目录 | 替换 9 个目录 |
 
-pack 里被晋级为独立 skill 的 8 个入口（7 张能力卡 + 1 个路由入口）：
+pack 里被晋级为独立 skill 的 8 张卡：
 
 - `source-router` — 博弈分类六维度与来源路由入口
 - `event-game-tree-rollback` — 事件博弈树逆推
@@ -80,7 +80,7 @@ pack 里被晋级为独立 skill 的 8 个入口（7 张能力卡 + 1 个路由�
 
 **最终回答示例**
 
-> 结论：这是囚徒困境型的支付结构。"双输"不是市场失灵，而是双方各自理性的稳定落点。书里的标准演示是国会 vs 美联储（表4-5）：给定任一利率，国会的最优反应都是赤字（4>3、2>1）；给定任一财政政策，美联储的最优反应都是高利率（4>3、2>1）；双重圈唯一的均衡是（赤字,高利率）=(2,2)，而（平衡,低利率）=(3,4) 对双方都更好——理性个体可以稳定地锁在次优格。套到佣金战：只要"降佣"在你的支付表里是占优策略，你单方面不降就是在让份额，靠默契喊停没有用。
+> 结论：这是囚徒困境型的支付结构。"双输"不是市场失灵，而是双方各自理性的稳定落点。书里的标准演示是国会 vs 美联储（表4-5）：给定任一利率，国会的最优反应都是赤字（4>3、2>1）；给定任一财政政策，美联储的最优反应都是高利率（4>3、2>1）；双重圈唯一的均衡是（赤字, 高利率）=(2,2)，而（平衡, 低利率）=(3,4) 对双方都更好——理性个体可以稳定地锁在次优格。套到佣金战：只要"降佣"在你的支付表里是占优策略，你单方面不降就是在让份额，靠默契喊停没有用。
 >
 > 两件事得由你补。一是支付数值：书里只给教学数字，你这张表的份额流失、费率、单位成本都要自己估；估不出来就别硬填，改输出定性方向（"降佣是/不是占优策略"），不要伪造数字。二是如果你用了带等号的剔除（比如"持平先按不降处理"），记得逐格复查——书里表4-6 罗伊娜-科林博弈就是弱占优剔除漏掉两个均衡的反例，横盘对峙这种平局状态恰恰最容易被剔掉。
 >
@@ -119,7 +119,17 @@ pack 里被晋级为独立 skill 的 8 个入口（7 张能力卡 + 1 个路由�
 5. **Zettelkasten 链接**——找出能力卡之间的依赖、对比、组合关系，生成能力索引与路由表
 6. **触发与输出测试**——为每张卡设计触发盲测题（含诱饵题：该触发时要触发，不该触发时要沉默）与输出评测场景，未通过的卡回炉重做，回炉后再做回归验证
 
-本书的几处特殊处理也影响蒸馏结果：原书没有直接的股票市场案例（最接近市场的只有拍卖章与谈判章），"博弈概念→股市场景"的映射由能力卡自行构建并自设参数；第15章投票制度与第12章进化博弈的生物学数学细节只取思想内核，不做计算；第13章机制设计属书级裁剪决策，仅以"信号可信度判定"卡的甄别半边间接覆盖。
+本书的几处特殊处理也影响蒸馏结果：原书没有直接的股票市场案例（最接近市场的只有拍卖章与谈判章），"博弈概念 → 股市场景"的映射由能力卡自行构建并自设参数；第 15 章投票制度与第 12 章进化博弈的生物学数学细节只取思想内核，不做计算；第 13 章机制设计属书级裁剪决策，只以"信号可信度判定"卡的甄别半边间接覆盖。
+
+## 测试与验证
+
+`evals/` 下是本仓库连生成过程一起发布的触发测试用例，按 skill 分文件，共 9 个文件、55 条用例：
+
+- **should_trigger 27 条**：该触发时是否触发，以及是否路由到正确的能力卡
+- **should_not_trigger 18 条**：诱饵题——纯技术指标计算、结构已明确该直达某张卡（入口不应吞单）等，不该触发时要沉默
+- **edge_case 10 条**：个人决策 vs 博弈、要素缺失时该追问而不是代填
+
+这些文件记录的是用例与预期行为（`expected_behavior`），不是评分结果。本仓库不附评分记录文件，用例可以自己拿去跑。
 
 ## 仓库结构
 
@@ -128,23 +138,78 @@ game-of-strategy-skill/
 ├── README.md                      ← 你正在看的
 ├── README.en.md                   ← English version
 ├── LICENSE                        ← MIT
+├── INDEX.md                       ← skill 地图：14 张卡的去向与依赖关系
 ├── BOOK_OVERVIEW.md               ← 整书理解（Adler 四步拆解，阶段 0 产出）
-├── verified.md                    ← 43 条规范单元的三重验证结论
+├── verified.md                    ← 47 条候选单元的三重验证结论（35 通过 / 12 被拒）
+├── bundle/                        ← 编译本仓库所用的 Bundle（审计材料）
+│   ├── verified.yaml              ← 14 张卡的规范单元（slug / 意图 / 去向 / 晋级门）
+│   ├── cards/                     ← 14 张能力卡源文件
+│   │   ├── celue-00-source-router.md
+│   │   ├── celue-01-event-game-tree-rollback.md
+│   │   ├── celue-02-payoff-table-nash-equilibrium.md
+│   │   ├── celue-03-cooperation-threshold-repeat-game.md
+│   │   ├── celue-04-mixed-strategy-randomization.md
+│   │   ├── celue-05-credibility-signaling-filter.md
+│   │   ├── celue-06-focal-point-selection.md
+│   │   ├── celue-07-strategic-moves-credibility.md
+│   │   ├── celue-08-collective-action-stampede.md
+│   │   ├── celue-09-brinkmanship-dual-threshold.md
+│   │   ├── celue-10-winner-curse-auction-bidding.md
+│   │   ├── celue-11-batna-negotiation.md
+│   │   ├── celue-12-strategic-crowding-ess.md
+│   │   └── celue-13-mechanism-design-incentives.md
+│   └── book/
+│       ├── overview.md            ← 整书概览
+│       └── glossary.md            ← 术语表
 ├── single/                        ← 单一入口模式
 │   └── game-of-strategy-skill/
 │       ├── SKILL.md               ← 入口：触发条件 + 路由表 + 加载规则
+│       ├── BUILD_MANIFEST.json    ← 编译清单与文件哈希
 │       └── references/
 │           ├── overview.md        ← 整书概览
 │           ├── capability-index.md  ← 完整意图与关键词索引
 │           ├── cheatsheet.md      ← 决策规则速查
 │           ├── glossary.md        ← 术语表
 │           └── capabilities/      ← 14 张能力卡
+│               ├── source-router.md
+│               ├── event-game-tree-rollback.md
+│               ├── payoff-table-nash-equilibrium.md
+│               ├── cooperation-threshold-repeat-game.md
+│               ├── mixed-strategy-randomization.md
+│               ├── credibility-signaling-filter.md
+│               ├── focal-point-selection.md
+│               ├── strategic-moves-credibility.md
+│               ├── collective-action-stampede.md
+│               ├── brinkmanship-dual-threshold.md
+│               ├── winner-curse-auction-bidding.md
+│               ├── batna-negotiation.md
+│               ├── strategic-crowding-ess.md
+│               └── mechanism-design-incentives.md
 ├── pack/                          ← 多入口模式（compact pack）
 │   ├── BUILD_MANIFEST.json        ← 编译清单与文件哈希
 │   ├── capability-destinations.json  ← 14 张卡的晋级去向映射
-│   ├── game-of-strategy-skill/    ← 来源路由入口
-│   │   ├── SKILL.md
+│   ├── game-of-strategy-skill-router/
+│   │   ├── SKILL.md               ← 来源路由入口
 │   │   └── references/            ← 14 张卡 + 索引，供 router 内部调用
+│   │       ├── overview.md
+│   │       ├── capability-index.md
+│   │       ├── cheatsheet.md
+│   │       ├── glossary.md
+│   │       └── capabilities/      ← 14 张能力卡
+│   │           ├── source-router.md
+│   │           ├── event-game-tree-rollback.md
+│   │           ├── payoff-table-nash-equilibrium.md
+│   │           ├── cooperation-threshold-repeat-game.md
+│   │           ├── mixed-strategy-randomization.md
+│   │           ├── credibility-signaling-filter.md
+│   │           ├── focal-point-selection.md
+│   │           ├── strategic-moves-credibility.md
+│   │           ├── collective-action-stampede.md
+│   │           ├── brinkmanship-dual-threshold.md
+│   │           ├── winner-curse-auction-bidding.md
+│   │           ├── batna-negotiation.md
+│   │           ├── strategic-crowding-ess.md
+│   │           └── mechanism-design-incentives.md
 │   ├── source-router/
 │   │   └── SKILL.md
 │   ├── event-game-tree-rollback/
@@ -161,6 +226,16 @@ game-of-strategy-skill/
 │   │   └── SKILL.md
 │   └── strategic-crowding-ess/
 │       └── SKILL.md
+└── evals/                         ← 触发测试用例（55 条）
+    ├── game-of-strategy-skill.json
+    ├── source-router.json
+    ├── event-game-tree-rollback.json
+    ├── payoff-table-nash-equilibrium.json
+    ├── cooperation-threshold-repeat-game.json
+    ├── credibility-signaling-filter.json
+    ├── strategic-moves-credibility.json
+    ├── winner-curse-auction-bidding.json
+    └── strategic-crowding-ess.json
 ```
 
 ## 如何使用
@@ -190,7 +265,7 @@ Copy-Item -Recurse .\game-of-strategy-skill\single\game-of-strategy-skill "$env:
 ```bash
 # macOS / Linux
 cd game-of-strategy-skill/pack
-cp -r game-of-strategy-skill \
+cp -r game-of-strategy-skill-router \
       source-router \
       event-game-tree-rollback \
       payoff-table-nash-equilibrium \
@@ -205,7 +280,7 @@ cp -r game-of-strategy-skill \
 # Windows
 $pack = ".\game-of-strategy-skill\pack"
 $dest = "$env:USERPROFILE\.agents\skills"
-@('game-of-strategy-skill','source-router','event-game-tree-rollback','payoff-table-nash-equilibrium','cooperation-threshold-repeat-game','credibility-signaling-filter','strategic-moves-credibility','winner-curse-auction-bidding','strategic-crowding-ess') |
+@('game-of-strategy-skill-router','source-router','event-game-tree-rollback','payoff-table-nash-equilibrium','cooperation-threshold-repeat-game','credibility-signaling-filter','strategic-moves-credibility','winner-curse-auction-bidding','strategic-crowding-ess') |
   ForEach-Object { Copy-Item -Recurse -LiteralPath (Join-Path $pack $_) -Destination $dest }
 ```
 
@@ -218,7 +293,6 @@ $dest = "$env:USERPROFILE\.agents\skills"
 ## 来源
 
 - 《策略博弈》阿维纳什·迪克西特、苏珊·斯克丝、戴维·赖利 著
-- 全书蒸馏，共产出 14 张能力卡
 
 ## 声明
 
@@ -226,8 +300,6 @@ $dest = "$env:USERPROFILE\.agents\skills"
 
 书中所有数字判据（合作临界收益率、边缘政策双阈值、ESS 临界比例、赢家诅咒的条件期望系数等）都是案例与教学例题的归纳，原书未提供统计回测背书，使用时需按标的自行测试并声明所用口径。本仓库内容不构成投资建议。
 
-
 ## License
 
 [MIT](./LICENSE)
-

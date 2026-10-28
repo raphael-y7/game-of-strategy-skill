@@ -1,0 +1,583 @@
+schema_version: 1
+bundle_id: bundle.celue-boyi-v4
+book:
+  title: 策略博弈（第4版）
+  author: 阿维纳什·迪克西特、苏珊·斯克丝、戴维·赖利
+  source_pack: 合并转写稿_策略博弈第4版.md（全量视觉转写，521页）
+  baseline_tag: cangjie-v2.5
+router_entry:
+  name: game-of-strategy-skill-router
+  description: 《策略博弈（第4版）》博弈分析来源路由入口：用行动时序/利益冲突/次数/信息/规则/协调六问给股票投资情境分类，路由到博弈树逆推、纳什均衡、合作临界值、信号可信度、策略性行动、赢家诅咒、策略拥挤等13张能力卡。当用户的问题不明确属于哪个具体博弈分析任务时由此入口分类分派。
+entry:
+  name: game-of-strategy-skill
+  description: 以《策略博弈（第4版）》方法论辅助股票投资分析：把市场局面翻译为博弈结构（参与者/时序/信息/支付），选择正确解概念（逆推/纳什均衡/ESS）得出可核对的行为预测，覆盖事件博弈树、合作瓦解临界、信号可信度、赢家诅咒、策略拥挤五类核心任务。适用于用户要求用博弈论分析个股事件、行业格局、政策博弈、打新与并购谈判等场景。
+  core_principles:
+  - 先判结构再求解：时序、冲突度、重复性、信息结构、规则可否操纵、协调维度六问分类（第2章）
+  - 序贯博弈逆推：向前看、向后推理，从终点结剪枝（第3章）
+  - 同时行动找纳什均衡：互为最优反应，弱占优剔除须复查（第4-5章）
+  - 行动胜于语言：信号须差异成本，威胁须互相伤害且可置信（第8-9章）
+  - 合作靠未来：重复博弈用有效收益率对照临界值判断瓦解风险（第10章）
+  - 中标即坏消息：共同价值拍卖向下调整防赢家的诅咒（第16章）
+  out_of_scope:
+  - 不预测股价涨跌方向，只输出博弈结构与行为预测
+  - 不处理与多人策略互动无关的纯技术指标问题
+  - 投票制度与生物进化数学细节不做计算（第12/15章仅取思想）
+  stop_conditions:
+  - 输入缺失参与人/支付/时序等关键要素时先询问，不代填
+  - 支付数值无法估计且用户不提供时，输出定性方向而非伪造数值
+  - 局面不构成策略互动（无交叉效应）时明确退出并说明
+promotion_budget: 8
+capabilities:
+- capability_id: celue-00-source-router
+  revision: 1
+  status: active
+  slug: source-router
+  title: 博弈分类六维度与来源路由入口
+  importance: high（全书入口，分类错误则后续解法全错；f01验证V3结论）
+  importance_rationale: T类任务映射与实际使用价值
+  one_liner: 用行动时序/利益冲突/次数/信息/规则/协调六问给局面分类，并路由到对应能力卡。
+  intents:
+  - 我遇到的这个问题是决策问题还是博弈问题？
+  - 这个博弈是序贯还是同时、一次性还是重复、信息对称吗？
+  - 该按哪张能力卡来分析这个局面？
+  keywords:
+  - 博弈分类
+  - 六维度
+  - 行动时序
+  - 信息不对称
+  - 重复博弈
+  - 路由
+  - 入口
+  also_read:
+  - celue-01-event-game-tree-rollback
+  - celue-02-payoff-table-nash-equilibrium
+  - celue-05-credibility-signaling-filter
+  - celue-12-strategic-crowding-ess
+  card: cards/celue-00-source-router.md
+  frontmatter:
+    description: 用行动时序/利益冲突/次数/信息/规则/协调六问给局面分类，并路由到对应能力卡。。我遇到的这个问题是决策问题还是博弈问题？；这个博弈是序贯还是同时、一次性还是重复、信息对称吗？
+    tags:
+    - cangjie
+    - celue-boyi
+  source_evidence:
+    source: 第1章1.4-1.5、第2章（六维度清单）；全书章节地图
+    verdict: verified
+  promotion:
+    destination: promoted
+    gate: &id001
+      independent_intent: true
+      independent_contract: true
+      independent_run: true
+      independent_reuse: true
+      independent_eval: true
+    notes: 独立意图强+契约完整+每次分析必经的高频入口。
+- capability_id: celue-01-event-game-tree-rollback
+  revision: 1
+  status: active
+  slug: event-game-tree-rollback
+  title: 事件博弈树逆推
+  importance: high（事件驱动分析底座；c15幸存者例0.54>0.48数值评测通过）
+  importance_rationale: T类任务映射与实际使用价值
+  one_liner: 建树后从终点结逆推，产出可核对的均衡路径与条件策略（含自然节点的概率乘积法）。
+  intents:
+  - 这个事件链条接下来会怎么走？
+  - 从终点倒推，各方现在的最优行动是什么？
+  - 含不确定性的多阶段事件怎么定价？
+  keywords:
+  - 博弈树
+  - 逆推
+  - rollback
+  - 序贯博弈
+  - 均衡路径
+  - 事件驱动
+  - 自然节点
+  also_read:
+  - celue-00-source-router
+  - celue-09-brinkmanship-dual-threshold
+  - celue-03-cooperation-threshold-repeat-game
+  - celue-07-strategic-moves-credibility
+  card: cards/celue-01-event-game-tree-rollback.md
+  frontmatter:
+    description: 建树后从终点结逆推，产出可核对的均衡路径与条件策略（含自然节点的概率乘积法）。。这个事件链条接下来会怎么走？；从终点倒推，各方现在的最优行动是什么？
+    tags:
+    - cangjie
+    - celue-boyi
+  source_evidence:
+    source: 第2章2.3、第3章全章（逆推法与博弈树建模）
+    verdict: verified
+  promotion:
+    destination: promoted
+    gate: *id001
+    notes: 独立意图强+契约完整+一切动态事件链的高频复用底座。
+- capability_id: celue-02-payoff-table-nash-equilibrium
+  revision: 1
+  status: active
+  slug: payoff-table-nash-equilibrium
+  title: 支付表与纳什均衡定位
+  importance: high（最高频结构工具；表4-5数值评测通过；x04/x05双失效证据）
+  importance_rationale: T类任务映射与实际使用价值
+  one_liner: 最优反应分析逐格双向圈定均衡，占优剔除做快速减法，弱占优必须复查。
+  intents:
+  - 双方会落到哪个格子？为什么理性还双输？
+  - 怎么画支付表、怎么找全部纳什均衡？
+  - 剔除劣势策略会不会漏掉均衡？
+  keywords:
+  - 支付表
+  - 纳什均衡
+  - 最优反应分析
+  - 占优策略
+  - 重复剔除
+  - 弱占优
+  - 风险态度
+  also_read:
+  - celue-00-source-router
+  - celue-04-mixed-strategy-randomization
+  - celue-06-focal-point-selection
+  - celue-08-collective-action-stampede
+  card: cards/celue-02-payoff-table-nash-equilibrium.md
+  frontmatter:
+    description: 最优反应分析逐格双向圈定均衡，占优剔除做快速减法，弱占优必须复查。。双方会落到哪个格子？为什么理性还双输？；怎么画支付表、怎么找全部纳什均衡？
+    tags:
+    - cangjie
+    - celue-boyi
+  source_evidence:
+    source: 第4章全章（表4-4至4-6）、第6章6.1（图6-2光纤投资例）
+    verdict: verified
+  promotion:
+    destination: promoted
+    gate: *id001
+    notes: 独立意图强+契约完整（含填写规范）+所有同时博弈的高频入口工具。
+- capability_id: celue-03-cooperation-threshold-repeat-game
+  revision: 1
+  status: active
+  slug: cooperation-threshold-repeat-game
+  title: 合作临界值计算（重复博弈与瓦解时点）
+  importance: high（行业默契/OPEC/抱团崩盘时点预判；110%数值评测通过）
+  importance_rationale: T类任务映射与实际使用价值
+  one_liner: R>(C−L)/(H−C)−1 与 R>(C−D)/(H−C) 双临界加 R=(1−pδ)/(pδ) 折算，给出合作瓦解的先行指标。
+  intents:
+  - 这个抱团/联盟能维持多久？何时会瓦解？
+  - 维持合作需要的最低收益率/延续概率是多少？
+  - 限售解禁、对赌到期这类时点有什么风险？
+  keywords:
+  - 重复博弈
+  - 触发策略
+  - 合作临界
+  - 有效收益率
+  - 以牙还牙
+  - 瓦解时点
+  - 终点效应
+  also_read:
+  - celue-01-event-game-tree-rollback
+  - celue-12-strategic-crowding-ess
+  - celue-08-collective-action-stampede
+  - celue-02-payoff-table-nash-equilibrium
+  card: cards/celue-03-cooperation-threshold-repeat-game.md
+  frontmatter:
+    description: R>(C−L)/(H−C)−1 与 R>(C−D)/(H−C) 双临界加 R=(1−pδ)/(pδ) 折算，给出合作瓦解的先行指标。。这个抱团/联盟能维持多久？何时会瓦解？；维持合作需要的最低收益率/延续概率是多少？
+    tags:
+    - cangjie
+    - celue-boyi
+  source_evidence:
+    source: 第10章10.2-10.3（L6631-6665）、10.5有限重复
+    verdict: verified
+  promotion:
+    destination: promoted
+    gate: *id001
+    notes: 独立意图强+计算契约完整可复算+抱团监控高频复用。
+- capability_id: celue-04-mixed-strategy-randomization
+  revision: 1
+  status: active
+  slug: mixed-strategy-randomization
+  title: 混合策略与随机化执行
+  importance: medium（计算严谨但严格零和前提在市场少有满足，x03自警"慎之又慎"）
+  importance_rationale: T类任务映射与实际使用价值
+  one_liner: 令对手无差异解出均衡混合概率；执行端防过度交替；严格限定零和场景。
+  intents:
+  - 对手下一步会怎么随机化？我该押哪个方向？
+  - 怎么防止自己的模式被识别？
+  keywords:
+  - 混合策略
+  - 对手无差异
+  - 随机化
+  - 零和
+  - 秒针法
+  - 模式识别
+  also_read:
+  - celue-02-payoff-table-nash-equilibrium
+  - celue-12-strategic-crowding-ess
+  - celue-09-brinkmanship-dual-threshold
+  card: cards/celue-04-mixed-strategy-randomization.md
+  frontmatter:
+    description: 令对手无差异解出均衡混合概率；执行端防过度交替；严格限定零和场景。。对手下一步会怎么随机化？我该押哪个方向？；怎么防止自己的模式被识别？
+    tags:
+    - cangjie
+    - celue-boyi
+  source_evidence:
+    source: 第7章全章（对手无差异性、秒针法）
+    verdict: verified
+  promotion:
+    destination: router
+    gate: &id002
+      independent_intent: true
+      independent_contract: true
+      independent_run: true
+      independent_reuse: false
+      independent_eval: false
+    notes: J4独立复用弱——非零和场景失效边界宽，保留为能力卡经路由入口访问。
+- capability_id: celue-05-credibility-signaling-filter
+  revision: 1
+  status: active
+  slug: credibility-signaling-filter
+  title: 信号与话语可信度判定
+  importance: high（研报/公告/IR解读的日频缺省过滤器；教育信号7-11与f<0.65评测通过）
+  importance_rationale: T类任务映射与实际使用价值
+  one_liner: 利益一致度分级+差异成本检验双通道过滤信息，辅以均衡三型判型与柠檬临界预警。
+  intents:
+  - 这份研报/这篇荐股能信几分？
+  - 管理层的回购/指引是真是假？
+  - 这个市场什么时候会发生逆向选择崩盘？
+  keywords:
+  - 可信度
+  - 廉价磋商
+  - 差异成本
+  - 信号
+  - 甄别
+  - 分离均衡
+  - 混同均衡
+  - 柠檬市场
+  - 废话均衡
+  also_read:
+  - celue-07-strategic-moves-credibility
+  - celue-00-source-router
+  - celue-13-mechanism-design-incentives
+  - celue-10-winner-curse-auction-bidding
+  card: cards/celue-05-credibility-signaling-filter.md
+  frontmatter:
+    description: 利益一致度分级+差异成本检验双通道过滤信息，辅以均衡三型判型与柠檬临界预警。。这份研报/这篇荐股能信几分？；管理层的回购/指引是真是假？
+    tags:
+    - cangjie
+    - celue-boyi
+  source_evidence:
+    source: 第8章8.2-8.4（廉价磋商、信号差异成本、分离/混同、柠檬市场）
+    verdict: verified
+  promotion:
+    destination: promoted
+    gate: *id001
+    notes: 独立意图强+契约完整+投资分析中日频最高的复用场景。
+- capability_id: celue-06-focal-point-selection
+  revision: 1
+  status: active
+  slug: focal-point-selection
+  title: 聚点与关键点位选择
+  importance: medium（解释力强但原书自认"艺术"、无计算契约，判定不可复算）
+  importance_rationale: T类任务映射与实际使用价值
+  one_liner: 借共同显著性线索预测多重均衡的收敛方向，并提示参照系异质时的失效。
+  intents:
+  - 多重均衡下市场会收敛到哪个？
+  - 整数关口/前高为什么有效？何时失效？
+  keywords:
+  - 聚点
+  - 多重均衡
+  - 协调
+  - 关口
+  - 自我实现
+  - 参照系
+  also_read:
+  - celue-02-payoff-table-nash-equilibrium
+  - celue-08-collective-action-stampede
+  - celue-12-strategic-crowding-ess
+  card: cards/celue-06-focal-point-selection.md
+  frontmatter:
+    description: 借共同显著性线索预测多重均衡的收敛方向，并提示参照系异质时的失效。。多重均衡下市场会收敛到哪个？；整数关口/前高为什么有效？何时失效？
+    tags:
+    - cangjie
+    - celue-boyi
+  source_evidence:
+    source: 第4章4.5（聚点均衡）、第2章（协调）
+    verdict: verified
+  promotion:
+    destination: router
+    gate: *id002
+    notes: J2独立契约弱——非程序化契约，保留为能力卡经路由入口访问。
+- capability_id: celue-07-strategic-moves-credibility
+  revision: 1
+  status: active
+  slug: strategic-moves-credibility
+  title: 策略性行动与置信度评估
+  importance: high（公告与博弈行为解读的主框架；三级声明复演评测通过）
+  importance_rationale: T类任务映射与实际使用价值
+  one_liner: 可观察+不可逆双条件定强弱，承诺/威胁/许诺分类配手段库打分，附反制清单与"威胁成功则不必执行"。
+  intents:
+  - 央行/大股东/庄家这个表态算数吗？
+  - 这份承诺公告的含金量怎么打分？
+  - 对手的策略性行动怎么反制？
+  keywords:
+  - 承诺
+  - 威胁
+  - 许诺
+  - 可观察
+  - 不可逆
+  - 置信度
+  - 烧桥
+  - 声誉
+  - 腊肠策略
+  - 反制
+  also_read:
+  - celue-05-credibility-signaling-filter
+  - celue-09-brinkmanship-dual-threshold
+  - celue-11-batna-negotiation
+  - celue-13-mechanism-design-incentives
+  card: cards/celue-07-strategic-moves-credibility.md
+  frontmatter:
+    description: 可观察+不可逆双条件定强弱，承诺/威胁/许诺分类配手段库打分，附反制清单与"威胁成功则不必执行"。。央行/大股东/庄家这个表态算数吗？；这份承诺公告的含金量怎么打分？
+    tags:
+    - cangjie
+    - celue-boyi
+  source_evidence:
+    source: 第9章全章（承诺/威胁/许诺、置信度手段、反制）
+    verdict: verified
+  promotion:
+    destination: promoted
+    gate: *id001
+    notes: 独立意图强+契约完整（分类→检验→手段→反制全链）+公告解读高频。
+- capability_id: celue-08-collective-action-stampede
+  revision: 1
+  status: active
+  slug: collective-action-stampede
+  title: 集体行动与踩踏（多人博弈判据）
+  importance: high（拥挤度与踩踏的机制刻画；通勤例6000/3000全链数值评测通过；需外部标定P/S曲线故入router）
+  importance_rationale: T类任务映射与实际使用价值
+  one_liner: P(n)/S(n)曲线三型判别+边际社会获益三分解+责任分散公式，量化拥挤阶段与踩踏临界。
+  intents:
+  - 这个抱团/挤兑处在什么阶段？临界人数到了吗？
+  - 策略使用者还有多少涌入空间？
+  - 流动性挤兑的底部在哪里？
+  keywords:
+  - 集体行动
+  - 三型判别
+  - 囚徒型
+  - 懦夫型
+  - 安全型
+  - 边际社会获益
+  - 责任分散
+  - 临界规模
+  - 锁定
+  - 踩踏
+  - 拥挤度
+  also_read:
+  - celue-12-strategic-crowding-ess
+  - celue-03-cooperation-threshold-repeat-game
+  - celue-02-payoff-table-nash-equilibrium
+  - celue-06-focal-point-selection
+  card: cards/celue-08-collective-action-stampede.md
+  frontmatter:
+    description: P(n)/S(n)曲线三型判别+边际社会获益三分解+责任分散公式，量化拥挤阶段与踩踏临界。。这个抱团/挤兑处在什么阶段？临界人数到了吗？；策略使用者还有多少涌入空间？
+    tags:
+    - cangjie
+    - celue-boyi
+  source_evidence:
+    source: 第11章全章（三型判别、P/S曲线、责任分散、临界规模I、通勤例）
+    verdict: verified
+  promotion:
+    destination: router
+    gate: *id002
+    notes: J4弱——曲线需外部标定、判定对支付数字敏感；与celue-12（类型比例维度）互补，保留能力卡。
+- capability_id: celue-09-brinkmanship-dual-threshold
+  revision: 1
+  status: active
+  slug: brinkmanship-dual-threshold
+  title: 边缘政策概率威胁双阈值
+  importance: medium（地缘/债务上限事件偶发且p/q须主观赋值，x09显示三重误判风险）
+  importance_rationale: T类任务映射与实际使用价值
+  one_liner: 有效条件与可接受条件围出可行域，p落入三段给出行动/边缘/放弃，附失控项与尾部留权。
+  intents:
+  - 这个风险事件的概率威胁可行吗？
+  - 事件溢价该怎么给、撤退线画在哪？
+  keywords:
+  - 边缘政策
+  - 概率威胁
+  - 可行域
+  - 双阈值
+  - 失控
+  - 债务上限
+  - 地缘风险
+  also_read:
+  - celue-07-strategic-moves-credibility
+  - celue-01-event-game-tree-rollback
+  - celue-11-batna-negotiation
+  - celue-04-mixed-strategy-randomization
+  card: cards/celue-09-brinkmanship-dual-threshold.md
+  frontmatter:
+    description: 有效条件与可接受条件围出可行域，p落入三段给出行动/边缘/放弃，附失控项与尾部留权。。这个风险事件的概率威胁可行吗？；事件溢价该怎么给、撤退线画在哪？
+    tags:
+    - cangjie
+    - celue-boyi
+  source_evidence:
+    source: 第14章14.3-14.4（古巴导弹危机，q>0.6有效、上限0.375(1−p)/p）
+    verdict: verified
+  promotion:
+    destination: router
+    gate: *id002
+    notes: J4弱——事件驱动偶发场景、参数主观性高，保留能力卡。
+- capability_id: celue-10-winner-curse-auction-bidding
+  revision: 1
+  status: active
+  slug: winner-curse-auction-bidding
+  title: 赢家诅咒与拍卖出价
+  importance: high（打新/定增/并购套利强制校验；0.75b<b评测通过）
+  importance_rationale: T类任务映射与实际使用价值
+  one_liner: '"我是否高估+对手行为揭示什么"两问强制校验，按机制映射调整出价。'
+  intents:
+  - 打新/定增/大宗该出多少价？
+  - 中了标是不是反而意味着坏消息？
+  - 这个拍卖机制对应什么出价策略？
+  keywords:
+  - 赢家诅咒
+  - 共同价值
+  - 拍卖
+  - 出价
+  - 英式
+  - 一价
+  - 二价
+  - 全支付
+  - 收益等价
+  - 维克里
+  also_read:
+  - celue-05-credibility-signaling-filter
+  - celue-02-payoff-table-nash-equilibrium
+  - celue-13-mechanism-design-incentives
+  - celue-11-batna-negotiation
+  card: cards/celue-10-winner-curse-auction-bidding.md
+  frontmatter:
+    description: '"我是否高估+对手行为揭示什么"两问强制校验，按机制映射调整出价。。打新/定增/大宗该出多少价？；中了标是不是反而意味着坏消息？'
+    tags:
+    - cangjie
+    - celue-boyi
+  source_evidence:
+    source: 第16章16.2-16.4（两问检验、四种拍卖机制、收益等价）
+    verdict: verified
+  promotion:
+    destination: promoted
+    gate: *id001
+    notes: 独立意图强+计算契约完整+一级半市场高频复用。
+- capability_id: celue-11-batna-negotiation
+  revision: 1
+  status: active
+  slug: batna-negotiation
+  title: BATNA谈判分析
+  importance: medium（并购/重组场景有效但v/a/b难标定、二级投资占比小；x02公平偏好边界）
+  importance_rationale: T类任务映射与实际使用价值
+  one_liner: x=a+h(v−a−b)定成交区间，BATNA操纵与不耐烦比例y/x=r/s定实力分配。
+  intents:
+  - 这单并购/定增的成交区间在哪？
+  - 弱势方怎么改进谈判结果？
+  - 对方拖得起吗？
+  keywords:
+  - BATNA
+  - 纳什合作解
+  - 轮流出价
+  - 不耐烦
+  - 谈判实力
+  - 剩余分配
+  - 移动威胁点
+  also_read:
+  - celue-07-strategic-moves-credibility
+  - celue-10-winner-curse-auction-bidding
+  - celue-09-brinkmanship-dual-threshold
+  - celue-01-event-game-tree-rollback
+  card: cards/celue-11-batna-negotiation.md
+  frontmatter:
+    description: x=a+h(v−a−b)定成交区间，BATNA操纵与不耐烦比例y/x=r/s定实力分配。。这单并购/定增的成交区间在哪？；弱势方怎么改进谈判结果？
+    tags:
+    - cangjie
+    - celue-boyi
+  source_evidence:
+    source: 第17章17.2-17.5（纳什合作解、BATNA操纵、不耐烦与贴现）
+    verdict: verified
+  promotion:
+    destination: router
+    gate: *id002
+    notes: J4弱——谈判场景低频且参数难标定，保留能力卡。
+- capability_id: celue-12-strategic-crowding-ess
+  revision: 1
+  status: active
+  slug: strategic-crowding-ess
+  title: 策略拥挤与抱团瓦解（进化博弈判据）
+  importance: high（风格轮动/抱团监控的进化论刻画；四式阈值族数值评测全部通过）
+  importance_rationale: T类任务映射与实际使用价值
+  one_liner: ESS双准则+适应度阈值族（x>2/3、x>2/n、x<1/2）+鹰比例h=V/C，判策略拥挤度与瓦解条件。
+  intents:
+  - 这个风格/策略现在挤不挤？何时瓦解？
+  - 我的策略能抵抗抢跑变异吗？
+  - 趋势的临界持仓占比是多少？
+  keywords:
+  - ESS
+  - 进化稳定
+  - 适应度
+  - 临界比例
+  - 鹰鸽博弈
+  - V/C
+  - 多态型
+  - 单态型
+  - 策略拥挤
+  - 抱团瓦解
+  - 风格轮动
+  - 临界持仓占比
+  also_read:
+  - celue-08-collective-action-stampede
+  - celue-03-cooperation-threshold-repeat-game
+  - celue-04-mixed-strategy-randomization
+  - celue-06-focal-point-selection
+  card: cards/celue-12-strategic-crowding-ess.md
+  frontmatter:
+    description: ESS双准则+适应度阈值族（x>2/3、x>2/n、x<1/2）+鹰比例h=V/C，判策略拥挤度与瓦解条件。。这个风格/策略现在挤不挤？何时瓦解？；我的策略能抵抗抢跑变异吗？
+    tags:
+    - cangjie
+    - celue-boyi
+  source_evidence:
+    source: 第12章全章（ESS、适应度阈值族、鹰鸽V-C、多态型）
+    verdict: verified
+  promotion:
+    destination: promoted
+    gate: *id001
+    notes: 独立意图强+契约完整（四条公式族可复算）+拥挤监控高频复用。
+- capability_id: celue-13-mechanism-design-incentives
+  revision: 1
+  status: active
+  slug: mechanism-design-incentives
+  title: 机制设计与激励契约分析
+  importance: medium
+  importance_rationale: T15书级裁剪保留的router能力；委托代理结构在股权激励、业绩承诺、承销协议分析中可用
+  one_liner: 用激励相容与参与约束双条件评估契约与信息披露机制能否诱导真实类型/真实努力
+  intents:
+  - 设计或评估激励机制/契约条款
+  - 分析信息披露规则与说真话条件
+  - 判断契约是否满足激励相容与参与约束
+  keywords:
+  - 机制设计
+  - 激励相容
+  - 参与约束
+  - 契约
+  - 信息披露
+  - 道德风险
+  - mechanism design
+  - incentive contract
+  also_read:
+  - celue-05-credibility-signaling-filter
+  - celue-07-strategic-moves-credibility
+  - celue-10-winner-curse-auction-bidding
+  - celue-02-payoff-table-nash-equilibrium
+  card: cards/celue-13-mechanism-design-incentives.md
+  frontmatter:
+    description: 用激励相容与参与约束双条件评估契约与信息披露机制能否诱导真实类型/真实努力。设计或评估激励机制/契约条款；分析信息披露规则与说真话条件
+    tags:
+    - cangjie
+    - celue-boyi
+  source_evidence:
+    source: 第13章 13.1-13.6
+    verdict: verified
+  promotion:
+    destination: router
+    gate: *id002
+    notes: 独立意图中等（多数任务可并入可信度判定），保留为能力卡

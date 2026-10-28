@@ -1,0 +1,48 @@
+{
+  "skill": "cooperation-threshold-repeat-game",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "OPEC式减产联盟，油价大涨小成员想偷偷增产，这个默契什么时候散？",
+      "expected_behavior": "算有效收益率与双临界值判断合作维持",
+      "notes": "行业联盟瓦解"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "利率上行对抱团意味着什么？先行指标是什么？",
+      "expected_behavior": "用R临界值判断合作可维持性",
+      "notes": "宏观变量映射"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "对赌协议明年到期，最后几个月会抢跑吗？",
+      "expected_behavior": "终点效应+临界值分析",
+      "notes": "期限终点"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "打新这只票该报多少价？",
+      "expected_behavior": "一次性拍卖，应直达 winner-curse-auction-bidding",
+      "notes": "跨skill混淆：一次性≠重复"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "还有多少人会涌入这个板块",
+      "expected_behavior": "人数维度，应直达 collective-action-stampede",
+      "notes": "跨skill混淆：人数轴"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "合作收益和背叛收益我都估不出来",
+      "expected_behavior": "缺输入先询问，不代填；可用方向性判断但须声明",
+      "notes": "边界：缺数值"
+    }
+  ]
+}
