@@ -1,0 +1,48 @@
+{
+  "skill": "strategic-moves-credibility",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "央行表态'坚决防范汇率超调'，这个承诺算数吗？",
+      "expected_behavior": "可观察/不可逆/相互伤害三检验+置信度分级",
+      "notes": "政策承诺"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "对手放话砸到跌停逼我平仓，能信吗？怎么反制？",
+      "expected_behavior": "威胁可信度评估+反策略性行动",
+      "notes": "威胁与反制"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "要约收购公告怎么核实是认真的？",
+      "expected_behavior": "承诺置信度检验",
+      "notes": "并购承诺"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "这份研报信息含量有几分？",
+      "expected_behavior": "话语信息含量，应直达 credibility-signaling-filter",
+      "notes": "跨skill混淆：信息vs行动"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "算这个概率威胁的可行域宽度",
+      "expected_behavior": "概率威胁双阈值，应直达 brinkmanship-dual-threshold",
+      "notes": "跨skill混淆：边缘政策"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "他说到做到，但我不知道他能不能做到",
+      "expected_behavior": "区分意愿（支付结构）与能力（可逆性），分别检验",
+      "notes": "边界：意愿vs能力"
+    }
+  ]
+}

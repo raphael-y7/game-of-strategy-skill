@@ -1,0 +1,48 @@
+{
+  "skill": "event-game-tree-rollback",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "重组要过股东会、证监会、交割三关，每关概率多少？现在埋伏还是等落地？",
+      "expected_behavior": "建博弈树+逆推，输出均衡路径与条件策略",
+      "notes": "多阶段事件链"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "议息前抢跑、会后还有缩表表态，政策路径每步怎么定价？",
+      "expected_behavior": "序贯事件树逆推",
+      "notes": "政策事件链"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "解禁前一个月大股东会不会先拉高再出货？",
+      "expected_behavior": "建树逆推大股东最优行动",
+      "notes": "行为预测型"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "两家同时密封报价竞标一块地，会落到哪个组合？",
+      "expected_behavior": "同时行动，应直达 payoff-table-nash-equilibrium",
+      "notes": "跨skill混淆：同时≠序贯"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我算基金最大回撤",
+      "expected_behavior": "非博弈任务，不调用",
+      "notes": "诱饵：纯统计"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "这个事件的概率我完全不知道",
+      "expected_behavior": "按输入契约先询问或声明假设并留痕，不伪造概率",
+      "notes": "边界：缺输入"
+    }
+  ]
+}

@@ -141,6 +141,15 @@ game-of-strategy-skill/
 ├── INDEX.md                       ← skill 地图：14 张卡的去向与依赖关系
 ├── BOOK_OVERVIEW.md               ← 整书理解（Adler 四步拆解，阶段 0 产出）
 ├── verified.md                    ← 47 条候选单元的三重验证结论（35 通过 / 12 被拒）
+├── TEST_SUMMARY.md                ← Stage 4 压力测试摘要（测试范围 / 结构检查 / 结果）
+├── CANGJIE_ADAPTATION.md          ← 仓颉适配说明（文本状态 / 蒸馏目标 / 证据规则 / 使用边界）
+├── candidates/                    ← 阶段 1 原始候选池（审计材料，未进入编译）
+│   ├── frameworks.md              ← 框架与方法候选（f 族）
+│   ├── principles.md              ← 原则/规则/计算候选（p 族）
+│   ├── cases.md                   ← 案例候选（c 族）
+│   ├── counter_examples.md        ← 反例与失败模式候选（x 族）
+│   ├── glossary.md                ← 术语候选（65 条）
+│   └── supplement_t13_t14.md      ← 补提取：T13 集体行动判据 / T14 进化博弈
 ├── bundle/                        ← 编译本仓库所用的 Bundle（审计材料）
 │   ├── verified.yaml              ← 14 张卡的规范单元（slug / 意图 / 去向 / 晋级门）
 │   ├── cards/                     ← 14 张能力卡源文件
@@ -165,6 +174,7 @@ game-of-strategy-skill/
 │   └── game-of-strategy-skill/
 │       ├── SKILL.md               ← 入口：触发条件 + 路由表 + 加载规则
 │       ├── BUILD_MANIFEST.json    ← 编译清单与文件哈希
+│       ├── test-prompts.json      ← 入口触发用例（7 条，与 evals/game-of-strategy-skill.json 一致）
 │       └── references/
 │           ├── overview.md        ← 整书概览
 │           ├── capability-index.md  ← 完整意图与关键词索引
@@ -190,6 +200,7 @@ game-of-strategy-skill/
 │   ├── capability-destinations.json  ← 14 张卡的晋级去向映射
 │   ├── game-of-strategy-skill-router/
 │   │   ├── SKILL.md               ← 来源路由入口
+│   │   ├── test-prompts.json      ← 入口触发用例（7 条，与 evals/game-of-strategy-skill.json 一致）
 │   │   └── references/            ← 14 张卡 + 索引，供 router 内部调用
 │   │       ├── overview.md
 │   │       ├── capability-index.md
@@ -211,21 +222,29 @@ game-of-strategy-skill/
 │   │           ├── strategic-crowding-ess.md
 │   │           └── mechanism-design-incentives.md
 │   ├── source-router/
-│   │   └── SKILL.md
+│   │   ├── SKILL.md
+│   │   └── test-prompts.json      ← 6 条触发用例
 │   ├── event-game-tree-rollback/
-│   │   └── SKILL.md
+│   │   ├── SKILL.md
+│   │   └── test-prompts.json      ← 6 条触发用例
 │   ├── payoff-table-nash-equilibrium/
-│   │   └── SKILL.md
+│   │   ├── SKILL.md
+│   │   └── test-prompts.json      ← 6 条触发用例
 │   ├── cooperation-threshold-repeat-game/
-│   │   └── SKILL.md
+│   │   ├── SKILL.md
+│   │   └── test-prompts.json      ← 6 条触发用例
 │   ├── credibility-signaling-filter/
-│   │   └── SKILL.md
+│   │   ├── SKILL.md
+│   │   └── test-prompts.json      ← 6 条触发用例
 │   ├── strategic-moves-credibility/
-│   │   └── SKILL.md
+│   │   ├── SKILL.md
+│   │   └── test-prompts.json      ← 6 条触发用例
 │   ├── winner-curse-auction-bidding/
-│   │   └── SKILL.md
+│   │   ├── SKILL.md
+│   │   └── test-prompts.json      ← 6 条触发用例
 │   └── strategic-crowding-ess/
-│       └── SKILL.md
+│       ├── SKILL.md
+│       └── test-prompts.json      ← 6 条触发用例
 └── evals/                         ← 触发测试用例（55 条）
     ├── game-of-strategy-skill.json
     ├── source-router.json

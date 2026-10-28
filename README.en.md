@@ -141,6 +141,15 @@ game-of-strategy-skill/
 ├── INDEX.md                       ← skill map: destinations and dependencies of the 14 cards
 ├── BOOK_OVERVIEW.md               ← whole-book comprehension (Adler four-step breakdown, stage 0)
 ├── verified.md                    ← triple-verification verdicts for 47 candidates (35 passed / 12 rejected)
+├── TEST_SUMMARY.md                ← stage 4 pressure-test summary (scope / structural checks / results)
+├── CANGJIE_ADAPTATION.md          ← cangjie adaptation notes (text state / distillation goals / evidence rules / limits of use)
+├── candidates/                    ← stage 1 raw candidate pool (audit material, not compiled)
+│   ├── frameworks.md              ← framework and method candidates (f family)
+│   ├── principles.md              ← principle / rule / calculation candidates (p family)
+│   ├── cases.md                   ← case candidates (c family)
+│   ├── counter_examples.md        ← counter-example and failure-mode candidates (x family)
+│   ├── glossary.md                ← term candidates (65 entries)
+│   └── supplement_t13_t14.md      ← supplementary extraction: T13 collective action / T14 evolutionary games
 ├── bundle/                        ← the bundle this repository was compiled from (audit material)
 │   ├── verified.yaml              ← the 14 canonical units (slug / intents / destination / promotion gate)
 │   ├── cards/                     ← the 14 capability card source files
@@ -165,6 +174,7 @@ game-of-strategy-skill/
 │   └── game-of-strategy-skill/
 │       ├── SKILL.md               ← entry: triggers + routing table + loading rules
 │       ├── BUILD_MANIFEST.json    ← build manifest with file hashes
+│       ├── test-prompts.json      ← entry trigger cases (7, identical to evals/game-of-strategy-skill.json)
 │       └── references/
 │           ├── overview.md        ← whole-book overview
 │           ├── capability-index.md  ← full intent and keyword index
@@ -190,6 +200,7 @@ game-of-strategy-skill/
 │   ├── capability-destinations.json  ← promotion destinations of the 14 cards
 │   ├── game-of-strategy-skill-router/
 │   │   ├── SKILL.md               ← source routing entry
+│   │   ├── test-prompts.json      ← entry trigger cases (7, identical to evals/game-of-strategy-skill.json)
 │   │   └── references/            ← the 14 cards + index, used internally by the router
 │   │       ├── overview.md
 │   │       ├── capability-index.md
@@ -211,21 +222,29 @@ game-of-strategy-skill/
 │   │           ├── strategic-crowding-ess.md
 │   │           └── mechanism-design-incentives.md
 │   ├── source-router/
-│   │   └── SKILL.md
+│   │   ├── SKILL.md
+│   │   └── test-prompts.json      ← 6 trigger cases
 │   ├── event-game-tree-rollback/
-│   │   └── SKILL.md
+│   │   ├── SKILL.md
+│   │   └── test-prompts.json      ← 6 trigger cases
 │   ├── payoff-table-nash-equilibrium/
-│   │   └── SKILL.md
+│   │   ├── SKILL.md
+│   │   └── test-prompts.json      ← 6 trigger cases
 │   ├── cooperation-threshold-repeat-game/
-│   │   └── SKILL.md
+│   │   ├── SKILL.md
+│   │   └── test-prompts.json      ← 6 trigger cases
 │   ├── credibility-signaling-filter/
-│   │   └── SKILL.md
+│   │   ├── SKILL.md
+│   │   └── test-prompts.json      ← 6 trigger cases
 │   ├── strategic-moves-credibility/
-│   │   └── SKILL.md
+│   │   ├── SKILL.md
+│   │   └── test-prompts.json      ← 6 trigger cases
 │   ├── winner-curse-auction-bidding/
-│   │   └── SKILL.md
+│   │   ├── SKILL.md
+│   │   └── test-prompts.json      ← 6 trigger cases
 │   └── strategic-crowding-ess/
-│       └── SKILL.md
+│       ├── SKILL.md
+│       └── test-prompts.json      ← 6 trigger cases
 └── evals/                         ← trigger test cases (55)
     ├── game-of-strategy-skill.json
     ├── source-router.json

@@ -1,0 +1,550 @@
+# 《策略博弈（第4版）》关键概念词典（阶段1·术语提取）
+# 来源：合并转写稿正文首次定义处 + 各章末"关键术语"表；定义均为作者原文（轻度压缩）
+# 共 65 条（近义对合并为单条），按主题分组
+
+# ============ 一、基础概念（第1-2章） ============
+
+- term: 策略博弈
+  en: strategic games
+  definition: |
+    双方基于对交叉效应（一方行为影响另一方结果）的相互意识而采取的行动互动。
+  first_chapter: 第2章 2.1
+  distinction: |
+    与"决策"相对：决策是无需考虑他人反应的选择；博弈须有两个以上参与人相互意识到交叉效应。
+
+- term: 策略
+  en: strategies
+  definition: |
+    参与人可采取的选择；在序贯博弈中是规定各种可能情形下所采取行动的完整行动计划。
+  first_chapter: 第2章 2.3.1
+  distinction: |
+    行动（move）是结点上的单次行为，策略是写下来留给他人也能照章执行的完整计划（3.1.4）。
+
+- term: 支付
+  en: payoff
+  definition: |
+    与每一个可能结果联系在一起的数值，更高数值代表更好结果；须涵盖参与人在该结果下关心的一切。
+  first_chapter: 第2章 2.3.2
+  distinction: |
+    期望支付（expected payoff）是随机结果下各状态支付按概率加权的平均值，并非"预期最好的结果"。
+
+- term: 理性行为
+  en: rational behavior
+  definition: |
+    每个参与人对所有可能结果都有一套一致排序，并精于算计、严格按照最大化自身支付的最优策略行事。
+  first_chapter: 第2章 2.3.3
+  distinction: |
+    理性不等于自私（利他已含于支付），也不要求与他人价值体系相同；不能把自己的理性标准强加于人。
+
+- term: 共同知识
+  en: common knowledge
+  definition: |
+    某事实X成为共同知识，须人人知道X、且人人知道对方知道X……如此反复直至无穷。
+  first_chapter: 第2章 2.3.4
+  distinction: |
+    不同于"双方都知道"：缺少高阶相互知道时，参与人仍会依错误认知行动。
+
+- term: 零和博弈与常和博弈
+  en: zero-sum / constant-sum games
+  definition: |
+    一方所得即另一方所失、得失总和为零（或固定常数）的博弈，参与人利益完全冲突。
+  first_chapter: 第2章 2.2.2
+  distinction: |
+    常和是零和的推广（所分利益不必恰为零）；多数经济与社会博弈是非零和的，兼有冲突与共同利益。
+
+- term: 合作博弈与非合作博弈
+  en: cooperative / noncooperative games
+  definition: |
+    协议对参与人行为具有外部强制力的称合作博弈；协议无强制力、个体按自身利益行动的称非合作博弈。
+  first_chapter: 第2章 2.2.6
+  distinction: |
+    二者区别在协议可否强制执行（行为实施方式），不在于结果是否合作；本书以非合作博弈为主线。
+
+- term: 博弈树
+  en: game tree
+  definition: |
+    展示与分析序贯行动博弈的树形图（博弈的扩展式），由结点和枝组成，标示全部参与人、行动与支付。
+  first_chapter: 第3章 3.1
+  distinction: |
+    决策树是单人在中性环境中连续决策点的图；博弈树是所有参与人决策树的合并，终点结给出各方支付。
+
+- term: 决策结
+  en: decision node
+  definition: |
+    与之相联系的是一个参与人，他在该结点做出行动选择；博弈树的初始结（根）是一个决策结。
+  first_chapter: 第3章 3.1.1
+  distinction: |
+    终点结（terminal node）不再有行动选择，只对应一个支付结果；每个决策结至少发出一个枝。
+
+- term: 自然
+  en: nature
+  definition: |
+    引入博弈树以处理随机性的外部参与人，它没有支付，仅按已知概率在各枝之间做出选择。
+  first_chapter: 第3章 3.1.2
+  distinction: |
+    自然不是真实参与人：不最大化任何目标，只代表超出参与人控制的外部随机事件。
+
+- term: 信息集
+  en: information set
+  definition: |
+    被同一参与人视为无法区分的多个决策结组成的集合，其策略选择必须在集合内所有结点上指定同一行动。
+  first_chapter: 第6章 6.3.1
+  distinction: |
+    信息集把不完美信息形式化：所有信息集均为单结点时博弈是完美信息的；同时行动即多结点信息集。
+- term: 逆推法与逆推均衡
+  en: rollback / rollback equilibrium
+  definition: |
+    向前看、向后推理，从终点结起逐层剪枝求出的策略集合即逆推均衡；高级教材称之为子博弈完美均衡。
+  first_chapter: 第3章 3.2
+  distinction: |
+    又称逆向归纳法（backward induction）；子博弈完美均衡（SPE）是其正式表述——策略在每个子博弈上都构成纳什均衡（6.3）。
+
+- term: 先动优势与后动优势
+  en: first-mover / second-mover advantage
+  definition: |
+    先动优势来自把自身置于优势地位并迫使他人接受的承诺能力；后动优势源于对他人选择做出反应的灵活性。
+  first_chapter: 第3章 3.4
+  distinction: |
+    何者占优取决于具体策略与支付，无一般法则；参与人会试图操控行动顺序，由此引出策略性行动（第9章）。
+
+- term: 支付表
+  en: payoff table
+  definition: |
+    以行列表格同时展示各参与人可选策略及每一策略组合下各方支付的矩阵，即博弈的规范式（策略式）。
+  first_chapter: 第4章 4.1
+  distinction: |
+    博弈树（扩展式）表示序贯行动，支付表（规范式）表示同时行动；同一博弈可在两种表示间转换（6.3）。
+
+- term: 纳什均衡
+  en: Nash equilibrium
+  definition: |
+    一个策略组合：在其他参与人坚守组合中策略不变的情况下，没有参与人能通过单方面改变策略获得更高支付。
+  first_chapter: 第4章 4.2
+  distinction: |
+    不要求集体支付最优（可为囚徒困境式坏结果），也不要求策略严格优于其他选项；等价定义为"正确信念+最优反应"体系。
+
+- term: 最优反应
+  en: best response
+  definition: |
+    给定对手的选择（或信念），能使自己获得最高支付的行动或策略。
+  first_chapter: 第4章 4.2
+  distinction: |
+    纳什均衡是各方互为最优反应的组合；最优反应分析通过逐格检查或反应曲线寻找均衡。
+
+- term: 占优策略与劣策略
+  en: dominant / dominated strategy
+  definition: |
+    无论其他人如何选择都最优的策略称占优策略；无论其他人如何选择都较差的策略称劣策略。
+  first_chapter: 第4章 4.3
+  distinction: |
+    占优性是对他人一切可能选择的性质，而最优反应只针对他人的某一特定选择。
+
+- term: 重复剔除劣策略
+  en: successive (iterated) elimination of dominated strategies
+  definition: |
+    反复剔除劣策略以缩小博弈规模，直到不能再剔除；若最后只剩唯一结果，该博弈称占优可解。
+  first_chapter: 第4章 4.3.3
+  distinction: |
+    与单轮占优选择不同，剔除可多轮连锁进行；弱占优剔除可能漏掉部分均衡，须复查。
+
+- term: 囚徒困境
+  en: prisoners' dilemma
+  definition: |
+    每个参与人有合作/背叛两个策略、背叛是占优策略，且占优均衡比双方都合作的非均衡结果更差的博弈。
+  first_chapter: 第4章 4.3
+  distinction: |
+    与一般同时行动博弈不同：其唯一均衡对双方都劣于合作结果，是"理性个体锁定集体坏结果"的原型（第10章）。
+
+- term: 聚点
+  en: focal point
+  definition: |
+    依靠共同的历史、文化或语言"连接点"实现的协调焦点，参与人的预期收敛于其上从而选中同一均衡。
+  first_chapter: 第4章 4.6.1
+  distinction: |
+    均衡选择由博弈外的线索而非数学结构决定；须成为共同知识（预期收敛）才能奏效，如50:50分钱。
+
+- term: 可理性化
+  en: rationalizability
+  definition: |
+    剔除"绝非最优反应"的策略后剩下的策略称可理性化的；这一剔除过程本身称可理性化。
+  first_chapter: 第5章 5.3
+  distinction: |
+    它是仅凭"理性是共同知识"所能推出的全部，弱于纳什均衡——可理性化策略集包含均衡但可能大得多。
+
+- term: 混合策略与纯策略
+  en: mixed strategy / pure strategy
+  definition: |
+    混合策略是在诸纯策略上的随机选择（概率组合）；纯策略是其概率为1的极端特例。
+  first_chapter: 第7章 7.1
+  distinction: |
+    "随机"不等于频繁交替——交替本身是可被利用的模式；实践上须用独立随机装置执行（7.8秒针法）。
+
+- term: 对手无差异性
+  en: opponent's indifference property
+  definition: |
+    均衡中每个参与人的混合概率须使对手在自己的诸纯策略之间无差异（得到相同期望支付）。
+  first_chapter: 第7章 7.2
+  distinction: |
+    这是均衡的性质而非参与人的目的（没人有意让对方无差异）；据此反解均衡混合概率。
+
+# ============ 二、不确定性与信息（第8章） ============
+
+- term: 完美信息与不完美信息
+  en: perfect / imperfect information
+  definition: |
+    博弈既无外部不确定性又无策略不确定性时称完美信息，否则称不完美信息。
+  first_chapter: 第2章 2.2.4
+  distinction: |
+    不完美信息是不知道"已发生或正在发生的行动"；不完全信息是不知道"博弈规则、支付或类型"。
+
+- term: 外部不确定性与策略不确定性
+  en: external / strategic uncertainty
+  definition: |
+    对天气等博弈外部环境的不确定性称外部不确定性；对对手先前或当前准确行动的不确定性称策略不确定性。
+  first_chapter: 第2章 2.2.4
+  distinction: |
+    前者来自参与人控制之外的环境，后者来自互动本身；二者皆无即完美信息。
+
+- term: 不完全信息与非对称信息
+  en: incomplete / asymmetric information
+  definition: |
+    当一个参与人比另一个了解更多信息时产生不完全信息，更恰当的称呼是非对称信息。
+  first_chapter: 第2章 2.2.4
+  distinction: |
+    非对称强调"私人信息"的不对称分布；此时参与人会推测、隐藏或传递信息，催生信号传递与甄别。
+
+- term: 廉价磋商与废话均衡
+  en: cheap talk / babbling equilibrium
+  definition: |
+    没有直接成本的直接沟通称廉价磋商；当利益完全冲突时所有报告都可被忽略，唯一的均衡是废话均衡。
+  first_chapter: 第8章 8.3
+  distinction: |
+    "说出来"不等于"可信"：沟通可信度由利益一致程度内生决定——利益一致则有效，零和则只有废话。
+
+- term: 逆向选择与道德风险
+  en: adverse selection / moral hazard
+  definition: |
+    信息劣势方吸引到不利类型的自我选择现象称逆向选择；隐藏行动不可观察产生的不对称信息情形称道德风险。
+  first_chapter: 第8章 8.4.1（道德风险见第8章导言）
+  distinction: |
+    逆向选择是事前隐藏"类型"（柠檬市场可致市场崩溃）；道德风险是事后隐藏"行动"（保险缺乏防损激励）。
+
+- term: 信号传递与甄别
+  en: signaling / screening
+  definition: |
+    信息优势方刻意采取行动披露自己类型称信号传递；信息劣势方设计机制诱导对手如实显示类型称甄别。
+  first_chapter: 第2章 2.2.4（详论第8章 8.4-8.5）
+  distinction: |
+    信号是知情方先行动，甄别是不知情方设计机制；口头声明因无成本差异而对二者都无效。
+
+- term: 差异成本条件
+  en: differential cost condition
+  definition: |
+    信号可信的关键在于冒充者发送同一信号的成本高于真实类型；若模仿者无成本差异，信号不可信。
+  first_chapter: 第8章 8.4.2
+  distinction: |
+    有效信号不在内容真，而在"不同类型模仿成本不同"；这是"行动胜于语言"的形式化条件。
+
+- term: 激励相容与参与约束
+  en: incentive-compatibility / participation condition
+  definition: |
+    机制须给每种类型以如实选择的激励（激励相容条件），且使其所得不差于任何外部机会（参与条件）。
+  first_chapter: 第8章 8.5
+  distinction: |
+    激励相容保证类型自我选择（分离），参与约束保证对方愿意进场；二者是所有机制设计问题的约束（第13章）。
+
+- term: 分离均衡、混同均衡与半分离均衡
+  en: separating / pooling / semiseparating equilibrium
+  definition: |
+    均衡中类型被行动正确区分称分离均衡；有类型成功模仿致类型混合称混同均衡；部分分离部分混同称半分离均衡。
+  first_chapter: 第8章 8.2（半分离见8.6）
+  distinction: |
+    分离=行动完全披露类型；混同=行动不披露任何类型；半分离中某类型随机化、推断须用贝叶斯更新。
+
+- term: 贝叶斯纳什均衡与完美贝叶斯均衡
+  en: Bayesian Nash / perfect Bayesian equilibrium
+  definition: |
+    在信息不对称博弈中，参与人按观察用贝叶斯更新信念并最优行动，确定此类均衡的概念称贝叶斯纳什均衡。
+  first_chapter: 第8章 8.6-8.7
+  distinction: |
+    再加上逆推式的逐结最优化要求，即升级为完美贝叶斯均衡；后者排除均衡路径之外的不可信威胁。
+
+
+# ============ 三、策略性行动（第9、14章） ============
+
+- term: 策略性行动
+  en: strategic move
+  definition: |
+    在实际博弈之前采取、以改变后续博弈本身（行动顺序或支付）的行动；"先行动"须可观察且不可逆。
+  first_chapter: 第3章 3.4（系统分析第9章 9.1）
+  distinction: |
+    先行动不是时间在先，而是策略意义上的可观察+不可逆；其分类为无条件（承诺）与有条件（威胁、许诺）。
+
+- term: 承诺
+  en: commitment
+  definition: |
+    无条件的策略性行动：宣布"无论你做什么我都会做X"，若可信则相当于把自己变成实际上的先行动者。
+  first_chapter: 第9章 9.1.1
+  distinction: |
+    承诺不针对对方的选择；威胁与许诺则是以对方行动为条件的反应规则。
+
+- term: 威胁
+  en: threat
+  definition: |
+    "除非你的行动符合我的意愿，否则我将伤害你"的条件反应规则；其第二部分（顺从则奖励）是暗含许诺。
+  first_chapter: 第9章 9.1.1
+  distinction: |
+    威胁成功就不必执行、故可适度夸大；真威胁须"相互伤害"（实施对自己也有代价）才有置信度。
+
+- term: 暗含许诺
+  en: implicit promise
+  definition: |
+    威胁这一不完整策略描述中被省略的第二部分——"如果你顺从我就奖励你"；只有它自动可信，威胁才有效。
+  first_chapter: 第9章 9.2
+  distinction: |
+    "不吃青菜就没有点心"暗含"吃青菜就有点心"；暗含许诺因威胁实施对威胁者有代价而自动可信。
+
+- term: 许诺
+  en: promise
+  definition: |
+    "如果你的行动符合我的意愿，我就会奖励你"的条件反应规则，以支付衡量的奖励改变对手的激励。
+  first_chapter: 第9章 9.1.1
+  distinction: |
+    许诺成功就必须兑现、故只需大到有效；与威胁同为条件反应规则，但作用方向相反（奖而非罚）。
+
+- term: 置信度
+  en: credibility
+  definition: |
+    他人相信你会执行承诺/威胁/许诺的程度；威胁者须为实施威胁付出代价（相互伤害）才能建立。
+  first_chapter: 第9章 9.2
+  distinction: |
+    置信度靠削减自身选择（烧桥）或改变自身支付（声誉、契约、下放权限）建立，不靠放狠话。
+
+- term: 反策略性行动
+  en: counterstrategic moves（含腊肠策略 salami tactics）
+  definition: |
+    在对手实施策略性行动之前采取的破坏其有效性的行动，如破坏可观察性/不可逆性、逐寸蚕食的腊肠策略。
+  first_chapter: 第9章 9.7
+  distinction: |
+    属防御面：腊肠策略每次违反都小到不值得触发威胁；对策是分级处罚或逐步提升风险（边缘政策）。
+
+- term: 边缘政策
+  en: brinkmanship
+  definition: |
+    故意制造受控的失控风险、把双方带到危险边缘的策略：以随机实施来缩小过大而不可信的威胁。
+  first_chapter: 第9章 9.6（量化分析第14章）
+  distinction: |
+    不是把对方逼到墙角，而是精确控制灾难概率的区间；是懦夫博弈的动态版本（古巴导弹危机为案例）。
+
+- term: 概率威胁
+  en: probabilistic threat
+  definition: |
+    "倘若你不顺从，一件对你十分可怕的事可能会发生——对我也是灾难，但稍后我将无力减小其发生风险"。
+  first_chapter: 第14章 14.4
+  distinction: |
+    简单威胁宣称灾难必然发生，概率威胁是受控的随机灾难（俄罗斯轮盘赌式），因而可以可信。
+
+- term: 有效条件与可接受条件
+  en: effectiveness / acceptability condition
+  definition: |
+    概率q须高于使对手就范的下限（有效条件），又低于自己敢冒的风险上限（可接受条件）。
+  first_chapter: 第14章 14.4
+  distinction: |
+    有效条件关乎对手的顺从，可接受条件关乎自身的承受；两条件交出的窗口即边缘政策可行域。
+
+# ============ 四、囚徒困境与重复博弈（第10章） ============
+
+- term: 重复博弈
+  en: repeated play
+  definition: |
+    参与人之间重复和持续的关系：担心一有背叛就导致未来合作崩溃，从而可能自动维持合作。
+  first_chapter: 第10章 10.2
+  distinction: |
+    单次博弈（one-shot game）中参与人不必担心报复或声誉，行动更可能不择手段（2.2.3）；重复性改变均衡本身。
+
+- term: 触发策略
+  en: trigger strategy
+  definition: |
+    只要对手合作就合作，而对手一旦有任何背叛，就触发一段惩罚期并以不合作回应的条件策略。
+  first_chapter: 第10章 10.2.2
+  distinction: |
+    条件策略（contingent strategy）泛指本回合策略取决于前一回合行动；触发策略特指以背叛触发惩罚期者。
+
+- term: 冷酷策略与以牙还牙
+  en: grim strategy / Tit-for-Tat (TFT)
+  definition: |
+    冷酷策略：对手背叛前一直合作、背叛后永久惩罚；以牙还牙：首轮合作，此后每轮复制对手上一轮行动。
+  first_chapter: 第10章 10.2.2
+  distinction: |
+    冷酷不原谅（惩罚无期限）；TFT惩罚一期、对手回到合作即恢复合作，无须永久惩罚即可解决困境。
+
+- term: 贴现因子与现值
+  en: discount factor / present value (PV)
+  definition: |
+    现值是把未来支付折算成现在等价值的数额；贴现因子δ=1/(1+r)是折算比率，δ<1时无穷级数收敛。
+  first_chapter: 第10章 10.2.2
+  distinction: |
+    现值是折算后的金额，贴现因子是折算工具；比较背叛的当期收益与未来损失须先统一为现值。
+
+- term: 有效收益率
+  en: effective rate of return
+  definition: |
+    把博弈延续概率p纳入后，未来支付的有效贴现因子为p×δ，R满足1/(1+R)=p×δ，R即有效收益率。
+  first_chapter: 第10章 10.2.3
+  distinction: |
+    R融合资金收益率r与延续概率p；R越过临界值（如一次背叛须r>2）时合作瓦解——"没有明天"的关系必然背叛。
+
+- term: 有限次重复的逆推瓦解
+  en: unraveling in finitely repeated games（连锁店悖论思想）
+  definition: |
+    有限期内最后一期无未来可保，占优策略是背叛；逆推使背叛从最后一期逐期蔓延到第一期，困境重现。
+  first_chapter: 第10章 10.2.1
+  distinction: |
+    无限期（或延续概率p存在）时合作可由触发策略维持；"连锁店悖论"一词未见于本书，但其思想即此瓦解论证。
+
+# ============ 五、集体行动与进化博弈（第11-12章） ============
+
+- term: 集体行动
+  en: collective action
+  definition: |
+    一方建成工程后另一方自动获益、人人想把成本留给对方的策略互动，是集体行动的障碍（囚徒困境式）。
+  first_chapter: 第11章 11.1
+  distinction: |
+    双人版按支付结构分囚徒困境式、懦夫式、安全式三类；多人版涉及临界质量、搭便车与溢出。
+
+- term: 溢出效应与外部性
+  en: spillover effect / externality
+  definition: |
+    当一个人的行动以相同方式影响其他人（的支付）时，称溢出效应、外部效应或外部性。
+  first_chapter: 第11章 11.3
+  distinction: |
+    边际社会获益=边际私人获益+边际溢出效应；个人只对私人获益作反应，故均衡偏离社会最优。
+
+- term: 进化博弈
+  en: evolutionary game
+  definition: |
+    假设参与人无法自行选择策略而由固定"程序"规定，优势策略扩张更快、劣势策略渐被淘汰的动态分析框架。
+  first_chapter: 第2章 2.3.6（系统分析第12章）
+  distinction: |
+    不假设有意识的最大化，策略成败由适应性决定；其稳定极限常与理性均衡一致，为均衡分析提供后盾。
+
+- term: 表现型与适应性
+  en: phenotype / fitness
+  definition: |
+    被牢牢固定在个体身上的每个可想象策略称表现型；适应性是该策略与种群中其他策略博弈的平均支付。
+  first_chapter: 第12章 12.1
+  distinction: |
+    适应性高的表现型下一代繁殖扩散、低者消失；商业与社会中的对应机制是模仿、学习与资金流向。
+
+- term: 进化稳定策略
+  en: evolutionary stable strategy (ESS)
+  definition: |
+    比任何其他表现型更具适应性、使种群趋向单态型的唯一策略；混合ESS对应按比例共存的多态型。
+  first_chapter: 第12章 12.2
+  distinction: |
+    ESS要求能抵抗变异入侵（原生准则E(I,I)>E(J,I)，必要时用次生准则），是强于纳什均衡的稳定性概念。
+
+- term: 鹰鸽博弈
+  en: hawk-dove game
+  definition: |
+    生物学家创立进化博弈论的第一个例子：攻击型（鹰）与温和型（鸽）的进化稳定比例依赖于支付结构（V/C）。
+  first_chapter: 第12章 12.6
+  distinction: |
+    与囚徒困境、懦夫博弈的支付结构相近，但这里求解的是种群中两表现型的稳定比例而非个体最优。
+
+# ============ 六、机制设计（第13章） ============
+
+- term: 机制设计
+  en: mechanism design
+  definition: |
+    信息劣势方（委托人）为信息优势方（代理人）创造动机、使其行为有利于委托人的规则设计程序。
+  first_chapter: 第13章 导言
+  distinction: |
+    站在规则制定者立场反向求解博弈（委托-代理框架），是甄别机制的推广；信息披露与激励合约皆其应用（13.4）。
+
+
+# ============ 七、拍卖（第16章） ============
+
+- term: 英式拍卖与荷兰式拍卖
+  en: English (ascending) / Dutch (descending) auction
+  definition: |
+    英式拍卖从低价开始公开喊价、价高者得；荷兰式拍卖从高价起逐级降价、首个接受者得标的。
+  first_chapter: 第16章 16.1
+  distinction: |
+    升价vs降价；策略上荷兰式等价于第一价格密封拍卖，英式与第二价格密封拍卖结果相近。
+
+- term: 第一高价与第二高价密封拍卖
+  en: first-price / second-price sealed-bid auction
+  definition: |
+    密封投标下，第一高价拍卖按赢家自己的报价付款；第二高价拍卖（维克里拍卖）只需付第二高的报价。
+  first_chapter: 第16章 16.1
+  distinction: |
+    第二高价机制使按真实估价出价成为占优策略（维克里说真话规则）；第一高价则有压低报价的激励。
+
+- term: 全支付拍卖
+  en: all-pay auction
+  definition: |
+    所有投标者无论输赢都要支付其投标价的拍卖（竞赛、游说、奥运选拔），均衡存在于混合策略之中。
+  first_chapter: 第16章 16.4
+  distinction: |
+    与只有胜者付款的标准拍卖不同：输家也付费导致强烈投标激励与实验中观察到的过度投标。
+
+- term: 共同价值与私人价值
+  en: common value / private value
+  definition: |
+    共同价值拍卖中标的对所有人价值相同但各自只有不精确估计；私人价值拍卖中各投标者价值由自己决定。
+  first_chapter: 第16章 16.1
+  distinction: |
+    共同价值下应从对手行为推断信息（估值相互关联）；私人价值下他人估价不影响自己的估值。
+
+- term: 赢家的诅咒
+  en: winner's curse
+  definition: |
+    对共同价值拍卖投标者的警告：一旦赢得拍卖品，很可能付出了大于其真实价值的价格。
+  first_chapter: 第16章 16.2
+  distinction: |
+    中标是"他人估值都低于你"的坏消息信号而非能力确认；防御是向下调整出价（两问检验法）。
+
+# ============ 八、谈判（第17章） ============
+
+- term: BATNA与剩余
+  en: best alternative to a negotiated agreement (BATNA) / surplus
+  definition: |
+    谈不成时各自所得a、b称最后底线（BATNA）；协议总值v超出a+b的部分即正剩余（v-a-b）。
+  first_chapter: 第17章 17.2
+  distinction: |
+    BATNA是破裂时的底线，剩余是协议的增益；提高己方、压低对方或同时压低双方BATNA效果相同。
+
+- term: 纳什合作解
+  en: Nash cooperative solution（纳什积 Nash product）
+  definition: |
+    将剩余按h:k比例在双方之间分配的解，几何上是过BATNA点的分配线与有效边界的交点。
+  first_chapter: 第17章 17.2
+  distinction: |
+    h、k代表相对谈判实力；实力并非外生——可由双方不耐烦程度非合作地推导（17.5：y/x=r/s）。
+
+
+- term: 轮流出价
+  en: alternating offer
+  definition: |
+    A先出价，B接受或还价，如此往复的序贯谈判程序，用逆推法求均衡；严格版本为Rubinstein (1982)模型。
+  first_chapter: 第17章 17.3
+  distinction: |
+    与纳什合作解的公理化进路不同，是非合作谈判程序；让步的动力来自剩余递减（decay）或不耐烦。
+
+- term: 不耐烦
+  en: impatience
+  definition: |
+    偏好马上获得甚于晚一点获得（现在的95美分好过以后的1美元）；较无耐性者所得更少，即使率先出价。
+  first_chapter: 第17章 17.5
+  distinction: |
+    不耐烦程度（r与s）参数化谈判实力并决定份额之比 y/x=r/s；与BATNA并列为谈判结果的两大决定因素。
+
+# ============ 提取说明 ============
+# 1. 覆盖清单中"连锁店悖论"作为专名未见于转写稿正文与各章关键术语表（grep仅命中连锁店经营案例），
+#    其思想（有限次重复逆推瓦解合作）由 10.2.1 覆盖，收录于"有限次重复的逆推瓦解"条。
+# 2. "复制者动态"（replicator dynamics）作为专名未出现；表现型比例演化由 12.2、12.5 的适应性动态覆盖。
+# 3. "Rubinstein模型"未独立设条：正文以轮流出价程序呈现，脚注（第17章注释11）引 Rubinstein (1982)，
+#    已并入"轮流出价"条目。
+# 4. 近义对（如"先动优势与后动优势"）合并为一条，distinction 内说明两者差异；
+#    全书各章末关键术语双语表已核对（第2-17章共18处"关键术语"节）。

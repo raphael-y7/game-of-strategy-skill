@@ -1,0 +1,48 @@
+{
+  "skill": "winner-curse-auction-bidding",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "新股发行价30元我估上限45元，该不该顶格申购？",
+      "expected_behavior": "共同价值判型→两问检验→向下调整",
+      "notes": "打新场景"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "定增询价报几折？怕中在坏消息上",
+      "expected_behavior": "赢家诅咒调整+机制映射",
+      "notes": "定增询价"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "大宗8折接货为什么机构说接了就亏？",
+      "expected_behavior": "共同价值/流动性折价拆分",
+      "notes": "大宗交易"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "和大股东一对一谈协议转让，成交区间怎么算？",
+      "expected_behavior": "双边谈判，应直达 batna-negotiation",
+      "notes": "跨skill混淆：谈判vs拍卖"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "这个供给联盟什么时候瓦解",
+      "expected_behavior": "重复合作临界，应直达 cooperation-threshold-repeat-game",
+      "notes": "跨skill混淆：次数轴"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "这次打新是摇号配售",
+      "expected_behavior": "识别机制：摇号削弱'中标=最乐观'逆向选择，收益来源改为发行折价，须拆分声明",
+      "notes": "边界：机制差异"
+    }
+  ]
+}

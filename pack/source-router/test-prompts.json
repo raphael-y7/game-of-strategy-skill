@@ -1,0 +1,48 @@
+{
+  "skill": "source-router",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "这个博弈是序贯还是同时？该按哪张卡分析？",
+      "expected_behavior": "调用 source-router 做六问分类与路由",
+      "notes": "分类路由主场景"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "财报前多空对峙，属于哪类博弈结构？",
+      "expected_behavior": "时序=同时→路由支付表纳什均衡",
+      "notes": "分类到同时博弈"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "荐股群的消息该按什么结构分析？",
+      "expected_behavior": "信息=不对称→路由 credibility-signaling-filter",
+      "notes": "分类到信息轴"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我算这两家券商价格战的均衡格",
+      "expected_behavior": "结构已明确，应直达 payoff-table-nash-equilibrium",
+      "notes": "跨skill混淆：分类器不产出数值"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "预测下周大盘涨跌",
+      "expected_behavior": "非博弈结构问题，不调用",
+      "notes": "诱饵：无策略互动"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "既是公告解读又是出价决策",
+      "expected_behavior": "拆分为两个局面分别路由，不强行合并",
+      "notes": "边界：混合场景"
+    }
+  ]
+}

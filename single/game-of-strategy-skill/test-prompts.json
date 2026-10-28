@@ -1,0 +1,55 @@
+{
+  "skill": "game-of-strategy-skill",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "这个局面该用博弈论怎么分析？我连这是哪类博弈都分不清",
+      "expected_behavior": "调用 game-of-strategy-skill，用六问分类后路由到具体能力卡",
+      "notes": "入口场景：结构不明"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "帮我看看这个事件链接下来会怎么走，各方会怎么反应",
+      "expected_behavior": "入口分类为序贯事件链后路由 event-game-tree-rollback",
+      "notes": "入口→逆推"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "这件事里谁是参与人、谁先动、信息谁多？",
+      "expected_behavior": "调用入口做六维标签与路由",
+      "notes": "要素提取型入口请求"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我算一下这只票的MACD金叉",
+      "expected_behavior": "纯技术指标计算，非策略互动，不调用任何博弈skill",
+      "notes": "诱饵：无对手"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "直接给我算这两家降佣博弈的纳什均衡",
+      "expected_behavior": "结构已明确（同时行动双人），应直达 payoff-table-nash-equilibrium 而非入口",
+      "notes": "跨skill混淆：入口不应吞单"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我要不要止损这笔仓位",
+      "expected_behavior": "个人决策（无对手最优反应），不路由，走决策分析",
+      "notes": "边界：决策 vs 博弈"
+    },
+    {
+      "id": "edge-02",
+      "type": "edge_case",
+      "prompt": "帮我分析这个博弈",
+      "expected_behavior": "要素缺失，入口先追问参与人/行动/时点/信息，不代填",
+      "notes": "边界：信息不足停在分类层"
+    }
+  ]
+}
