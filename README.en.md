@@ -1,4 +1,4 @@
-<h1 align="center">Games of Strategy Skill</h1>
+<h1 align="center">Game of Strategy Skill</h1>
 
 <p align="center"><a href="README.md">中文</a> | English</p>
 
