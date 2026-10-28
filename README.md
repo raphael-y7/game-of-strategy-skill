@@ -226,6 +226,8 @@ $dest = "$env:USERPROFILE\.agents\skills"
 
 书中所有数字判据（合作临界收益率、边缘政策双阈值、ESS 临界比例、赢家诅咒的条件期望系数等）都是案例与教学例题的归纳，原书未提供统计回测背书，使用时需按标的自行测试并声明所用口径。本仓库内容不构成投资建议。
 
+
 ## License
 
-[MIT](https://opensource.org/licenses/MIT)
+[MIT](./LICENSE)
+

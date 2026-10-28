@@ -226,6 +226,8 @@ This repository publishes distilled skills, indexes and rule quick references on
 
 All numeric criteria in the book (cooperation thresholds, brinkmanship dual thresholds, ESS critical proportions, the winner's-curse conditional-expectation factor, etc.) are case- and teaching-example-based rules without statistical backtesting; test them on your own instruments and declare the convention you use. Nothing in this repository is investment advice.
 
+
 ## License
 
-[MIT](https://opensource.org/licenses/MIT)
+[MIT](./LICENSE)
+
