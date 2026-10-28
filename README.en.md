@@ -217,10 +217,8 @@ Ask: "This company is running a private-placement book — how much should I bid
 
 ## Sources
 
-- *Games of Strategy (4th Edition)* by Avinash Dixit, Susan Skeath and David Reiley; Renmin University of China Press, April 2020 (Economics Science Translation Series; original edition W. W. Norton, 2015)
+- *Games of Strategy* by Avinash Dixit, Susan Skeath and David Reiley
 - Distilled from the whole book, producing 14 capability cards
-- The original cases are heavily US-centred (Congress vs the Fed, US-Japan trade, the Cuban missile crisis, the baseball strike) and include no direct stock-market case; this skill pack prioritizes A-share scenarios, and the "game concept → market scenario" mapping and its parameters were built inside the cards
-- The book's formulas (cooperation thresholds, the dual-threshold window, the ESS threshold family, the winner's-curse conditional expectation) come with teaching numbers only; in practice you must plug in your own payoffs, continuation probabilities and estimation errors
 
 ## Notice
 
