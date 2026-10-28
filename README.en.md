@@ -123,11 +123,14 @@ Several book-specific decisions shaped the result: the book has no direct stock-
 
 ## Testing and verification
 
-`evals/` holds the trigger test cases published together with the generation process, one file per skill: 9 files, 55 cases in total.
+Trigger test cases ship inside each skill directory, always named `test-prompts.json`: 10 files, 62 cases in total.
 
-- **should_trigger, 27 cases**: does it trigger when it should, and does it route to the right capability card
-- **should_not_trigger, 18 cases**: decoys — pure technical-indicator calculations, and questions already specific enough to hit one card directly (the entry must not swallow them); silence is the expected behaviour
-- **edge_case, 10 cases**: personal decisions versus games, and missing elements where the skill must ask instead of filling in
+- **should_trigger, 30 cases**: does it trigger when it should, and does it route to the right capability card
+- **should_not_trigger, 20 cases**: decoys — pure technical-indicator calculations, and questions already specific enough to hit one card directly (the entry must not swallow them); silence is the expected behaviour
+- **edge_case, 12 cases**: personal decisions versus games, and missing elements where the skill must ask instead of filling in
+- **output_case, 0 cases**: the pack has no output-quality cases; coverage concentrates on "should it trigger / which card should it route to"
+
+Distribution: one entry file `single/game-of-strategy-skill/test-prompts.json` (7 cases) and nine `pack/*/test-prompts.json` (55 cases).
 
 These files record cases and expected behaviour (`expected_behavior`), not scores. No scoring record is shipped in this repository; you can run the cases yourself.
 
@@ -135,126 +138,30 @@ These files record cases and expected behaviour (`expected_behavior`), not score
 
 ```text
 game-of-strategy-skill/
-├── README.md                      ← the Chinese README
-├── README.en.md                   ← you are reading this
-├── LICENSE                        ← MIT
-├── INDEX.md                       ← skill map: destinations and dependencies of the 14 cards
-├── BOOK_OVERVIEW.md               ← whole-book comprehension (Adler four-step breakdown, stage 0)
-├── verified.md                    ← triple-verification verdicts for 47 candidates (35 passed / 12 rejected)
-├── TEST_SUMMARY.md                ← stage 4 pressure-test summary (scope / structural checks / results)
-├── CANGJIE_ADAPTATION.md          ← cangjie adaptation notes (text state / distillation goals / evidence rules / limits of use)
-├── candidates/                    ← stage 1 raw candidate pool (audit material, not compiled)
-│   ├── frameworks.md              ← framework and method candidates (f family)
-│   ├── principles.md              ← principle / rule / calculation candidates (p family)
-│   ├── cases.md                   ← case candidates (c family)
-│   ├── counter_examples.md        ← counter-example and failure-mode candidates (x family)
-│   ├── glossary.md                ← term candidates (65 entries)
-│   └── supplement_t13_t14.md      ← supplementary extraction: T13 collective action / T14 evolutionary games
-├── bundle/                        ← the bundle this repository was compiled from (audit material)
-│   ├── verified.yaml              ← the 14 canonical units (slug / intents / destination / promotion gate)
-│   ├── cards/                     ← the 14 capability card source files
-│   │   ├── celue-00-source-router.md
-│   │   ├── celue-01-event-game-tree-rollback.md
-│   │   ├── celue-02-payoff-table-nash-equilibrium.md
-│   │   ├── celue-03-cooperation-threshold-repeat-game.md
-│   │   ├── celue-04-mixed-strategy-randomization.md
-│   │   ├── celue-05-credibility-signaling-filter.md
-│   │   ├── celue-06-focal-point-selection.md
-│   │   ├── celue-07-strategic-moves-credibility.md
-│   │   ├── celue-08-collective-action-stampede.md
-│   │   ├── celue-09-brinkmanship-dual-threshold.md
-│   │   ├── celue-10-winner-curse-auction-bidding.md
-│   │   ├── celue-11-batna-negotiation.md
-│   │   ├── celue-12-strategic-crowding-ess.md
-│   │   └── celue-13-mechanism-design-incentives.md
-│   └── book/
-│       ├── overview.md            ← whole-book overview
-│       └── glossary.md            ← glossary
-├── single/                        ← single-entry mode
-│   └── game-of-strategy-skill/
-│       ├── SKILL.md               ← entry: triggers + routing table + loading rules
-│       ├── BUILD_MANIFEST.json    ← build manifest with file hashes
-│       ├── test-prompts.json      ← entry trigger cases (7, identical to evals/game-of-strategy-skill.json)
-│       └── references/
-│           ├── overview.md        ← whole-book overview
-│           ├── capability-index.md  ← full intent and keyword index
-│           ├── cheatsheet.md      ← decision-rule cheatsheet
-│           ├── glossary.md        ← glossary
-│           └── capabilities/      ← the 14 capability cards
-│               ├── source-router.md
-│               ├── event-game-tree-rollback.md
-│               ├── payoff-table-nash-equilibrium.md
-│               ├── cooperation-threshold-repeat-game.md
-│               ├── mixed-strategy-randomization.md
-│               ├── credibility-signaling-filter.md
-│               ├── focal-point-selection.md
-│               ├── strategic-moves-credibility.md
-│               ├── collective-action-stampede.md
-│               ├── brinkmanship-dual-threshold.md
-│               ├── winner-curse-auction-bidding.md
-│               ├── batna-negotiation.md
-│               ├── strategic-crowding-ess.md
-│               └── mechanism-design-incentives.md
-├── pack/                          ← multi-entry mode (compact pack)
-│   ├── BUILD_MANIFEST.json        ← build manifest with file hashes
-│   ├── capability-destinations.json  ← promotion destinations of the 14 cards
-│   ├── game-of-strategy-skill-router/
-│   │   ├── SKILL.md               ← source routing entry
-│   │   ├── test-prompts.json      ← entry trigger cases (7, identical to evals/game-of-strategy-skill.json)
-│   │   └── references/            ← the 14 cards + index, used internally by the router
-│   │       ├── overview.md
-│   │       ├── capability-index.md
-│   │       ├── cheatsheet.md
-│   │       ├── glossary.md
-│   │       └── capabilities/      ← the 14 capability cards
-│   │           ├── source-router.md
-│   │           ├── event-game-tree-rollback.md
-│   │           ├── payoff-table-nash-equilibrium.md
-│   │           ├── cooperation-threshold-repeat-game.md
-│   │           ├── mixed-strategy-randomization.md
-│   │           ├── credibility-signaling-filter.md
-│   │           ├── focal-point-selection.md
-│   │           ├── strategic-moves-credibility.md
-│   │           ├── collective-action-stampede.md
-│   │           ├── brinkmanship-dual-threshold.md
-│   │           ├── winner-curse-auction-bidding.md
-│   │           ├── batna-negotiation.md
-│   │           ├── strategic-crowding-ess.md
-│   │           └── mechanism-design-incentives.md
-│   ├── source-router/
-│   │   ├── SKILL.md
-│   │   └── test-prompts.json      ← 6 trigger cases
-│   ├── event-game-tree-rollback/
-│   │   ├── SKILL.md
-│   │   └── test-prompts.json      ← 6 trigger cases
-│   ├── payoff-table-nash-equilibrium/
-│   │   ├── SKILL.md
-│   │   └── test-prompts.json      ← 6 trigger cases
-│   ├── cooperation-threshold-repeat-game/
-│   │   ├── SKILL.md
-│   │   └── test-prompts.json      ← 6 trigger cases
-│   ├── credibility-signaling-filter/
-│   │   ├── SKILL.md
-│   │   └── test-prompts.json      ← 6 trigger cases
-│   ├── strategic-moves-credibility/
-│   │   ├── SKILL.md
-│   │   └── test-prompts.json      ← 6 trigger cases
-│   ├── winner-curse-auction-bidding/
-│   │   ├── SKILL.md
-│   │   └── test-prompts.json      ← 6 trigger cases
-│   └── strategic-crowding-ess/
-│       ├── SKILL.md
-│       └── test-prompts.json      ← 6 trigger cases
-└── evals/                         ← trigger test cases (55)
-    ├── game-of-strategy-skill.json
-    ├── source-router.json
-    ├── event-game-tree-rollback.json
-    ├── payoff-table-nash-equilibrium.json
-    ├── cooperation-threshold-repeat-game.json
-    ├── credibility-signaling-filter.json
-    ├── strategic-moves-credibility.json
-    ├── winner-curse-auction-bidding.json
-    └── strategic-crowding-ess.json
+├── README.md              ← Chinese version
+├── README.en.md           ← you are reading this
+├── LICENSE                ← MIT
+├── BOOK_OVERVIEW.md       ← stage 0 output: Adler whole-book analysis
+├── INDEX.md               ← stage 3 output: skill map + dependencies
+├── verified.md            ← 43 units that passed triple verification
+├── TEST_SUMMARY.md        ← stage 4 output: stress-test summary
+├── CANGJIE_ADAPTATION.md  ← cangjie adaptation notes
+├── GITHUB_REPO.md         ← repository metadata
+├── candidates/            ← stage 1 output: raw candidate pool
+│   ├── frameworks.md      ← framework and method candidates
+│   ├── principles.md      ← principle / rule / calculation candidates
+│   ├── cases.md           ← case candidates from the book
+│   ├── counter-examples.md← counter-example and boundary candidates
+│   └── glossary.md        ← terminology candidates
+├── rejected/              ← stage 1.5 output: rejected units + reasons
+├── bundle/                ← compilation source of truth
+│   ├── verified.yaml      ← capability metadata, criteria and destinations
+│   ├── cards/             ← capability card sources (six sections)
+│   └── book/              ← overview.md + glossary.md
+├── single/                ← single-mode build (one entry + all capability cards)
+│   └── game-of-strategy-skill/SKILL.md  ← entry: triggers + routing table + loading rules
+└── pack/                  ← pack-mode build (one router + 8 promoted skills)
+    └── */SKILL.md         ← 9 skills, each shipping a test-prompts.json
 ```
 
 ## How to use

@@ -123,11 +123,14 @@ pack 里被晋级为独立 skill 的 8 张卡：
 
 ## 测试与验证
 
-`evals/` 下是本仓库连生成过程一起发布的触发测试用例，按 skill 分文件，共 9 个文件、55 条用例：
+触发测试用例随各 skill 目录一起发布，文件名统一为 `test-prompts.json`，共 10 个文件、62 条用例：
 
-- **should_trigger 27 条**：该触发时是否触发，以及是否路由到正确的能力卡
-- **should_not_trigger 18 条**：诱饵题——纯技术指标计算、结构已明确该直达某张卡（入口不应吞单）等，不该触发时要沉默
-- **edge_case 10 条**：个人决策 vs 博弈、要素缺失时该追问而不是代填
+- **should_trigger 30 条**：该触发时是否触发，以及是否路由到正确的能力卡
+- **should_not_trigger 20 条**：诱饵题——纯技术指标计算、结构已明确该直达某张卡（入口不应吞单）等，不该触发时要沉默
+- **edge_case 12 条**：个人决策 vs 博弈、要素缺失时该追问而不是代填
+- **output_case 0 条**：本包没有输出质量类用例，覆盖集中在"该不该触发 / 该路由到哪张卡"
+
+分布：入口 `single/game-of-strategy-skill/test-prompts.json` 1 个（7 条），`pack/*/test-prompts.json` 9 个（55 条）。
 
 这些文件记录的是用例与预期行为（`expected_behavior`），不是评分结果。本仓库不附评分记录文件，用例可以自己拿去跑。
 
@@ -135,126 +138,30 @@ pack 里被晋级为独立 skill 的 8 张卡：
 
 ```text
 game-of-strategy-skill/
-├── README.md                      ← 你正在看的
-├── README.en.md                   ← English version
-├── LICENSE                        ← MIT
-├── INDEX.md                       ← skill 地图：14 张卡的去向与依赖关系
-├── BOOK_OVERVIEW.md               ← 整书理解（Adler 四步拆解，阶段 0 产出）
-├── verified.md                    ← 47 条候选单元的三重验证结论（35 通过 / 12 被拒）
-├── TEST_SUMMARY.md                ← Stage 4 压力测试摘要（测试范围 / 结构检查 / 结果）
-├── CANGJIE_ADAPTATION.md          ← 仓颉适配说明（文本状态 / 蒸馏目标 / 证据规则 / 使用边界）
-├── candidates/                    ← 阶段 1 原始候选池（审计材料，未进入编译）
-│   ├── frameworks.md              ← 框架与方法候选（f 族）
-│   ├── principles.md              ← 原则/规则/计算候选（p 族）
-│   ├── cases.md                   ← 案例候选（c 族）
-│   ├── counter_examples.md        ← 反例与失败模式候选（x 族）
-│   ├── glossary.md                ← 术语候选（65 条）
-│   └── supplement_t13_t14.md      ← 补提取：T13 集体行动判据 / T14 进化博弈
-├── bundle/                        ← 编译本仓库所用的 Bundle（审计材料）
-│   ├── verified.yaml              ← 14 张卡的规范单元（slug / 意图 / 去向 / 晋级门）
-│   ├── cards/                     ← 14 张能力卡源文件
-│   │   ├── celue-00-source-router.md
-│   │   ├── celue-01-event-game-tree-rollback.md
-│   │   ├── celue-02-payoff-table-nash-equilibrium.md
-│   │   ├── celue-03-cooperation-threshold-repeat-game.md
-│   │   ├── celue-04-mixed-strategy-randomization.md
-│   │   ├── celue-05-credibility-signaling-filter.md
-│   │   ├── celue-06-focal-point-selection.md
-│   │   ├── celue-07-strategic-moves-credibility.md
-│   │   ├── celue-08-collective-action-stampede.md
-│   │   ├── celue-09-brinkmanship-dual-threshold.md
-│   │   ├── celue-10-winner-curse-auction-bidding.md
-│   │   ├── celue-11-batna-negotiation.md
-│   │   ├── celue-12-strategic-crowding-ess.md
-│   │   └── celue-13-mechanism-design-incentives.md
-│   └── book/
-│       ├── overview.md            ← 整书概览
-│       └── glossary.md            ← 术语表
-├── single/                        ← 单一入口模式
-│   └── game-of-strategy-skill/
-│       ├── SKILL.md               ← 入口：触发条件 + 路由表 + 加载规则
-│       ├── BUILD_MANIFEST.json    ← 编译清单与文件哈希
-│       ├── test-prompts.json      ← 入口触发用例（7 条，与 evals/game-of-strategy-skill.json 一致）
-│       └── references/
-│           ├── overview.md        ← 整书概览
-│           ├── capability-index.md  ← 完整意图与关键词索引
-│           ├── cheatsheet.md      ← 决策规则速查
-│           ├── glossary.md        ← 术语表
-│           └── capabilities/      ← 14 张能力卡
-│               ├── source-router.md
-│               ├── event-game-tree-rollback.md
-│               ├── payoff-table-nash-equilibrium.md
-│               ├── cooperation-threshold-repeat-game.md
-│               ├── mixed-strategy-randomization.md
-│               ├── credibility-signaling-filter.md
-│               ├── focal-point-selection.md
-│               ├── strategic-moves-credibility.md
-│               ├── collective-action-stampede.md
-│               ├── brinkmanship-dual-threshold.md
-│               ├── winner-curse-auction-bidding.md
-│               ├── batna-negotiation.md
-│               ├── strategic-crowding-ess.md
-│               └── mechanism-design-incentives.md
-├── pack/                          ← 多入口模式（compact pack）
-│   ├── BUILD_MANIFEST.json        ← 编译清单与文件哈希
-│   ├── capability-destinations.json  ← 14 张卡的晋级去向映射
-│   ├── game-of-strategy-skill-router/
-│   │   ├── SKILL.md               ← 来源路由入口
-│   │   ├── test-prompts.json      ← 入口触发用例（7 条，与 evals/game-of-strategy-skill.json 一致）
-│   │   └── references/            ← 14 张卡 + 索引，供 router 内部调用
-│   │       ├── overview.md
-│   │       ├── capability-index.md
-│   │       ├── cheatsheet.md
-│   │       ├── glossary.md
-│   │       └── capabilities/      ← 14 张能力卡
-│   │           ├── source-router.md
-│   │           ├── event-game-tree-rollback.md
-│   │           ├── payoff-table-nash-equilibrium.md
-│   │           ├── cooperation-threshold-repeat-game.md
-│   │           ├── mixed-strategy-randomization.md
-│   │           ├── credibility-signaling-filter.md
-│   │           ├── focal-point-selection.md
-│   │           ├── strategic-moves-credibility.md
-│   │           ├── collective-action-stampede.md
-│   │           ├── brinkmanship-dual-threshold.md
-│   │           ├── winner-curse-auction-bidding.md
-│   │           ├── batna-negotiation.md
-│   │           ├── strategic-crowding-ess.md
-│   │           └── mechanism-design-incentives.md
-│   ├── source-router/
-│   │   ├── SKILL.md
-│   │   └── test-prompts.json      ← 6 条触发用例
-│   ├── event-game-tree-rollback/
-│   │   ├── SKILL.md
-│   │   └── test-prompts.json      ← 6 条触发用例
-│   ├── payoff-table-nash-equilibrium/
-│   │   ├── SKILL.md
-│   │   └── test-prompts.json      ← 6 条触发用例
-│   ├── cooperation-threshold-repeat-game/
-│   │   ├── SKILL.md
-│   │   └── test-prompts.json      ← 6 条触发用例
-│   ├── credibility-signaling-filter/
-│   │   ├── SKILL.md
-│   │   └── test-prompts.json      ← 6 条触发用例
-│   ├── strategic-moves-credibility/
-│   │   ├── SKILL.md
-│   │   └── test-prompts.json      ← 6 条触发用例
-│   ├── winner-curse-auction-bidding/
-│   │   ├── SKILL.md
-│   │   └── test-prompts.json      ← 6 条触发用例
-│   └── strategic-crowding-ess/
-│       ├── SKILL.md
-│       └── test-prompts.json      ← 6 条触发用例
-└── evals/                         ← 触发测试用例（55 条）
-    ├── game-of-strategy-skill.json
-    ├── source-router.json
-    ├── event-game-tree-rollback.json
-    ├── payoff-table-nash-equilibrium.json
-    ├── cooperation-threshold-repeat-game.json
-    ├── credibility-signaling-filter.json
-    ├── strategic-moves-credibility.json
-    ├── winner-curse-auction-bidding.json
-    └── strategic-crowding-ess.json
+├── README.md              ← 你正在看的
+├── README.en.md           ← English version
+├── LICENSE                ← MIT
+├── BOOK_OVERVIEW.md       ← 阶段 0 产出：全书 Adler 分析
+├── INDEX.md               ← 阶段 3 产出：skill 总览 + 依赖关系
+├── verified.md            ← 通过三重验证的 43 个单元
+├── TEST_SUMMARY.md        ← 阶段 4 产出：压力测试摘要
+├── CANGJIE_ADAPTATION.md  ← 仓颉适配说明
+├── GITHUB_REPO.md         ← 仓库元数据
+├── candidates/            ← 阶段 1 产出：原始候选池
+│   ├── frameworks.md      ← 框架与方法候选
+│   ├── principles.md      ← 原则 / 规则 / 计算候选
+│   ├── cases.md           ← 书中案例候选
+│   ├── counter-examples.md← 反例与边界候选
+│   └── glossary.md        ← 术语候选
+├── rejected/              ← 阶段 1.5 产出：被淘汰的单元 + 原因
+├── bundle/                ← 编译事实源
+│   ├── verified.yaml      ← 能力元数据、判据与去向
+│   ├── cards/             ← 能力卡源文件（六段结构）
+│   └── book/              ← overview.md + glossary.md
+├── single/                ← single 模式（1 个入口 + 全部能力卡）
+│   └── game-of-strategy-skill/SKILL.md  ← 入口：触发 + 路由表 + 加载规则
+└── pack/                  ← pack 模式（1 个路由入口 + 8 个晋级 skill）
+    └── */SKILL.md         ← 9 个 skill，每个附带 test-prompts.json
 ```
 
 ## 如何使用

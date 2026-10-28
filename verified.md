@@ -329,12 +329,13 @@
 7. celue-10-winner-curse-auction-bidding 赢家诅咒与拍卖出价（f15+p18+x08）：J1"该出多少价"；J2两问+四机制映射；J3可复算；J4打新/定增/大宗/并购；J5 0.75b<b评测。
 8. celue-12-strategic-crowding-ess 策略拥挤与抱团瓦解·进化判据（f19+f20+p21+p22）：J1"这个风格挤不挤、何时瓦解"；J2 ESS双准则+适应度阈值族+V/C结构；J3全族数值复算通过；J4风格轮动/抱团监控高频；J5 x>2/3、x>2/n、x<1/2、h=V/C评测。
 
-### router 清单（5张能力卡，经 celue-00 路由入口访问）
+### router 清单（6张能力卡，经 celue-00 路由入口访问）
 - celue-04-mixed-strategy-randomization（f05+x03+x12）：J1/J2/J3/J5过，J4弱——严格零和前提在市场少有满足（x03自警），保留router。
 - celue-06-focal-point-selection（f06）：J1/J3过，J2弱——原书自认"艺术"、非计算契约，保留router。
 - celue-08-collective-action-stampede（f13+f17+f18+p19+p20+x11）：J1/J2/J3/J5过，J4中——P(n)/S(n)曲线需外部标定（missing_conditions自认）；与celue-12互补（人数维度vs类型比例维度），保留router。
 - celue-09-brinkmanship-dual-threshold（f14+x09）：J1/J2/J3/J5过，J4弱——地缘/债务上限事件偶发，p/q须主观赋值，保留router。
 - celue-11-batna-negotiation（f16+x02）：J1/J2/J3/J5过，J4弱——谈判场景在二级投资占比小、v/a/b难标定，保留router。
+- celue-13-mechanism-design-incentives（第13章书级裁剪决策，只以"信号可信度判定"卡的甄别半边间接覆盖）：本卡在阶段1.6晋级门评审之后才补入，未走J1-J5评审，去向为router，经 celue-00 路由入口访问。
 
 ### 反例（x01-x13）与原则（p族）去向归属
 - x01→celue-01失效边界；x02→celue-11；x03/x12→celue-04；x04/x05→celue-02排障；x06→celue-07；x07/x13→celue-05；x08→celue-10核心证据；x09→celue-09失败清单；x10→celue-03时点段；x11→celue-08证据。
@@ -345,5 +346,5 @@ p01→f02（L268原理句已入f02）；p04/p05→f05（等式+比较静态+秒�
 
 ### 评审后统计
 - verified：43条进评审（原35+补充8）；另有 c04 修复主体后升级为 verified 例证候选（见needs-review.md NR-01，不占43条基数）。
-- promoted 去向8（7卡+路由入口）；router 能力卡5；能力卡合计13。
+- promoted 去向8（7卡+路由入口）；router 能力卡6；能力卡合计14（与 `bundle/verified.yaml` 的 `capabilities` 数一致）。
 - rejected 维持12；needs_review 降为1（s01）。
